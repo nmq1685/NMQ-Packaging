@@ -1,40 +1,40 @@
-# Bao Bì Minh Quân
+# Minh Quân Packaging
 
-Website giới thiệu sản phẩm bao bì cho cửa hàng Bao Bì Minh Quân. Xây dựng bằng Vite + React + TypeScript + TailwindCSS + Framer Motion.
+A marketing website for Minh Quân Packaging showcasing their packaging products and services. Built with Vite, React, TypeScript, Tailwind CSS and Framer Motion.
 
-## Tính năng
-- Landing page hiện đại, nhiều hiệu ứng chuyển động mượt mà.
-- Danh mục sản phẩm với hover animation.
-- Khu vực giới thiệu dịch vụ/ưu điểm.
-- Form liên hệ (demo, chưa kết nối backend).
-- Responsive đầy đủ.
+## Features
+- Modern landing page with smooth motion effects.
+- Product catalog with hover animations.
+- Sections to present services and key advantages.
+- Contact form (demo only — not connected to a backend).
+- Fully responsive layout.
 
-## Chạy dự án
-Yêu cầu: Node.js 18+.
+## Running the project
+Requirements: Node.js 18+.
 
 ```powershell
-# Cài đặt phụ thuộc
+# Install dependencies
 npm install
 
-# Chạy dev
+# Start development server
 npm run dev
 
-# Build production
+# Build for production
 npm run build
 
-# Xem build
+# Preview production build
 npm run preview
 ```
 
-## Tùy biến nhanh
-- Thay logo/tên tại `index.html` và Navbar trong `src/App.tsx`.
-- Cập nhật màu sắc trong `tailwind.config.js` (mục `colors.brand`).
-- Cập nhật hình ảnh sản phẩm và thông tin liên hệ trong `src/App.tsx`.
+## Quick customizations
+- Replace the logo and site title in `index.html` and the Navbar inside `src/App.tsx`.
+- Update brand colors in `tailwind.config.js` (the `colors.brand` section).
+- Change product images and contact details in `src/App.tsx`.
 
-## Cấu trúc
-- `src/App.tsx`: Trang chính và các section.
-- `src/index.css`: Style Tailwind và tiện ích.
-- `vite.config.ts`: Cấu hình Vite.
+## Project structure
+- `src/App.tsx`: Main page and sections.
+- `src/index.css`: Tailwind imports and utilities.
+- `vite.config.ts`: Vite configuration.
 
-## Triển khai
-Có thể deploy lên Vercel/Netlify/Static hosting (dùng thư mục `dist/`).
+## Deployment
+You can deploy the `dist/` output to Vercel, Netlify, or any static hosting provider.
