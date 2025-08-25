@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/components/layout.tsx","./src/components/logo.tsx","./src/components/scrolltotop.tsx","./src/components/zalobadge.tsx","./src/pages/privacypolicy.tsx","./src/pages/purchasepolicy.tsx"],"version":"5.9.2"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/baobigrid.tsx","./src/components/layout.tsx","./src/components/logo.tsx","./src/components/scrolltotop.tsx","./src/components/zalobadge.tsx","./src/pages/privacypolicy.tsx","./src/pages/purchasepolicy.tsx"],"version":"5.9.2"}

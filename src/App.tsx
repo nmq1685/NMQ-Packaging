@@ -1,5 +1,6 @@
 import { FiBox, FiPhoneCall, FiShield, FiStar } from 'react-icons/fi'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 const Section = ({ id, className = '', children }: { id?: string; className?: string; children: React.ReactNode }) => (
   <section id={id} className={`container py-20 ${className}`}>
@@ -20,6 +21,35 @@ const Feature = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: 
 )
 
 export default function App() {
+  const [baoiImages, setBaoiImages] = useState<string[]>([])
+
+  useEffect(() => {
+    // Danh sách ảnh có sẵn trong thư mục baobi
+    const availableImages = [
+      '/images/baobi/1.png',
+      '/images/baobi/2.png'
+      // Có thể thêm nhiều ảnh hơn khi có
+    ]
+
+    // Tạo danh sách 9 ảnh: lặp lại nếu không đủ, chia đều nếu đủ
+    const generate9Images = (images: string[]) => {
+      if (images.length === 0) return Array(9).fill('/images/logo.png') // fallback
+      if (images.length >= 9) {
+        // Nếu có đủ ảnh, chia đều
+        return images.slice(0, 9)
+      } else {
+        // Nếu không đủ, lặp lại
+        const result = []
+        for (let i = 0; i < 9; i++) {
+          result.push(images[i % images.length])
+        }
+        return result
+      }
+    }
+
+    setBaoiImages(generate9Images(availableImages))
+  }, [])
+
   return (
     <>
       {/* Hero */}
@@ -44,8 +74,22 @@ export default function App() {
           <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative">
             <div className="aspect-[4/3] rounded-3xl bg-gradient-to-tr from-brand-600 via-blue-400 to-emerald-400 shadow-2xl overflow-hidden">
               <div className="absolute inset-0 grid grid-cols-3 gap-4 p-6 opacity-90">
-                {[...Array(9)].map((_, i) => (
-                  <motion.div key={i} whileHover={{ scale: 1.04 }} className="rounded-xl bg-white/30 backdrop-blur border border-white/40"></motion.div>
+                {baoiImages.map((imageSrc, i) => (
+                  <motion.div 
+                    key={i} 
+                    whileHover={{ scale: 1.04 }} 
+                    className="rounded-xl bg-white/30 backdrop-blur border border-white/40 overflow-hidden"
+                  >
+                    <img 
+                      src={imageSrc} 
+                      alt={`Bao bì ${i + 1}`}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback nếu ảnh không tải được
+                        e.currentTarget.src = '/images/logo.png'
+                      }}
+                    />
+                  </motion.div>
                 ))}
               </div>
             </div>
