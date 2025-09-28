@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 const Section = ({ id, className = '', children }: { id?: string; className?: string; children: React.ReactNode }) => (
-  <section id={id} className={`container py-20 ${className}`}>
-    {children}
+  <section id={id} className={`py-20 md:py-24 ${className}`}>
+    <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">{children}</div>
   </section>
 )
 
@@ -38,6 +38,39 @@ const Feature = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: 
 
 export default function App() {
   const [baobiImages, setBaobiImages] = useState<string[]>([])
+  // Unified lightbox state for hero (bao bì) & product images
+  const [lightbox, setLightbox] = useState<{ type: 'hero' | 'product' | 'video'; index: number } | null>(null)
+
+  const closeLightbox = () => setLightbox(null)
+  const showPrev = () =>
+    setLightbox((prev) => {
+      if (!prev) return prev
+      const collection = prev.type === 'hero' ? baobiImages : prev.type === 'product' ? productImages : videos.map(v => v.src)
+      return { ...prev, index: (prev.index - 1 + collection.length) % collection.length }
+    })
+  const showNext = () =>
+    setLightbox((prev) => {
+      if (!prev) return prev
+      const collection = prev.type === 'hero' ? baobiImages : prev.type === 'product' ? productImages : videos.map(v => v.src)
+      return { ...prev, index: (prev.index + 1) % collection.length }
+    })
+
+  useEffect(() => {
+    if (lightbox === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox()
+      else if (e.key === 'ArrowLeft') showPrev()
+      else if (e.key === 'ArrowRight') showNext()
+    }
+    document.addEventListener('keydown', onKey)
+    // Lock scroll
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = originalOverflow
+    }
+  }, [lightbox, baobiImages.length])
 
   useEffect(() => {
     const availableImages = Array.from({ length: 8 }, (_, i) => `/images/baobi/${i + 1}.png`)
@@ -84,27 +117,41 @@ export default function App() {
       tag: 'Giấy phủ silicone 2 mặt',
       desc: 'Túi bao chuyên dụng làm từ giấy phủ silicone 2 mặt, chống thấm nước ngoài trời và bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại.',
       bullets: ['Chất liệu giấy phủ silicone 2 mặt chống thấm', 'Bảo vệ khỏi côn trùng, sâu bọ, ruồi trái cây', 'Kích thước đa dạng phù hợp nhiều loại trái cây'],
+      image: '/images/baobi/1.png',
     },
     {
       name: 'Bán sỉ và lẻ',
       tag: 'Giá cạnh tranh',
       desc: 'Cung cấp sản phẩm với số lượng linh hoạt từ bán lẻ đến bán sỉ với giá cả cạnh tranh, chất lượng đảm bảo.',
       bullets: ['Bán lẻ số lượng nhỏ cho nông dân', 'Bán sỉ số lượng lớn cho hợp tác xã', 'Giá ưu đãi theo số lượng đặt hàng'],
+      image: '/images/baobi/2.png',
     },
-    {
+      {
       name: 'Chương trình đại lý cấp 1',
       tag: 'Cơ hội kinh doanh',
       desc: 'Tuyển đại lý cấp 1 toàn quốc với chính sách hỗ trợ hấp dẫn, đào tạo và phát triển thị trường cùng nhau.',
       bullets: ['Chính sách giá đại lý ưu đãi', 'Hỗ trợ marketing và quảng bá', 'Đào tạo kỹ thuật và kinh doanh'],
+      image: '/images/baobi/3.png',
     },
-  ]
+  ] as const
 
-  const partners = ['Co.opmart', 'Bách Hóa Xanh', 'Vissan', 'Vinapharm', 'GreenFarm', 'Nông trại Đồng Tháp']
+  // Derive product images for lightbox usage
+  const productImages = productCollections.map((p) => p.image || '/images/logo.png')
+
+  // Video sources (placed in public/videos/baobi/)
+  const videos = [1,2,3,4].map(n => ({
+    src: `/videos/baobi/${n}.mp4`,
+    title: `Video sản xuất ${n}`,
+    desc: 'Quy trình sản xuất túi bao bảo vệ trái cây chuyên dụng'
+  }))
+
+  // Tạm thời chưa có đối tác chính thức - chỉ hiện diện tại Đồng Tháp
+  const partners: string[] = []
 
   return (
     <>
-      <Section id="home" className="pt-20">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
+      <Section id="home" className="pt-16 md:pt-20">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -120,7 +167,7 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#2a1a0c]"
+              className="text-[2.1rem] leading-[1.15] sm:text-5xl lg:text-6xl font-extrabold text-[#2a1a0c] tracking-tight"
             >
               Bao bì bảo vệ trái cây chống côn trùng sâm hại
             </motion.h1>
@@ -183,20 +230,23 @@ export default function App() {
               <div className="absolute inset-6 rounded-[28px] border border-dashed border-[#ddc9a4]/70" />
               <div className="relative grid grid-cols-3 gap-4">
                 {baobiImages.map((imageSrc, i) => (
-                  <motion.div
+                  <motion.button
                     key={i}
+                    type="button"
                     whileHover={{ y: -6 }}
-                    className="rounded-2xl bg-white border border-[#ead5b3] overflow-hidden shadow-sm"
+                    onClick={() => setLightbox({ type: 'hero', index: i })}
+                    className="group rounded-2xl bg-white border border-[#ead5b3] overflow-hidden shadow-sm focus:outline-none focus:ring-2 focus:ring-[#c07b2c] focus:ring-offset-2 focus:ring-offset-[#fdf3df]"
+                    aria-label={`Xem lớn hình mẫu bao bì ${i + 1}`}
                   >
                     <img
                       src={imageSrc}
                       alt={`Mẫu bao bì ${i + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
                       onError={(e) => {
                         e.currentTarget.src = '/images/logo.png'
                       }}
                     />
-                  </motion.div>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -209,10 +259,100 @@ export default function App() {
               </div>
             </div>
           </motion.div>
+          {/* Mobile info badges */}
+          <div className="mt-6 w-full flex md:hidden flex-col gap-4">
+            <div className="rounded-2xl bg-white/90 shadow border border-[#f0debf] px-5 py-3 text-sm text-[#6c5942]">
+              <div className="font-semibold text-[#3b2a17]">Tem QR truy xuất</div>
+              <div>Tích hợp sẵn mã QR, in chống nhòe.</div>
+            </div>
+            <div className="rounded-3xl bg-[#2f2a24] text-white px-6 py-4 shadow flex items-center justify-between">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-[#f7e6c5]">Lead time</div>
+                <div className="text-xl font-semibold leading-tight">72 giờ</div>
+                <div className="text-xs text-[#f7e6c5]/80 mt-0.5">Từ phê duyệt mẫu tới sản xuất</div>
+              </div>
+              <div className="text-[11px] font-medium text-[#f7e6c5]/90">Nhanh chóng<br/>ổn định</div>
+            </div>
+          </div>
         </div>
       </Section>
 
-      <Section id="ve-chung-toi">
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Xem hình phóng to"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeLightbox()
+          }}
+        >
+          <div className="relative max-w-5xl w-full">
+            <div className="aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden border border-[#ead5b3] bg-white shadow-2xl flex items-center justify-center">
+              {lightbox.type === 'video' ? (
+                <video
+                  key={`video-${lightbox.index}`}
+                  src={videos[lightbox.index].src}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full h-full object-contain md:object-cover bg-black"
+                  preload="metadata"
+                >
+                  Trình duyệt của bạn không hỗ trợ video.
+                </video>
+              ) : (
+                (() => {
+                  const activeImages = lightbox.type === 'hero' ? baobiImages : productImages
+                  const currentSrc = activeImages[lightbox.index]
+                  return (
+                    <img
+                      src={currentSrc}
+                      alt={`Hình phóng to ${lightbox.index + 1}`}
+                      className="w-full h-full object-contain md:object-cover bg-white"
+                      draggable={false}
+                      onError={(e) => {
+                        e.currentTarget.src = '/images/logo.png'
+                      }}
+                    />
+                  )
+                })()
+              )}
+            </div>
+            {/* Controls */}
+            <button
+              type="button"
+              onClick={closeLightbox}
+              className="absolute -top-12 right-0 md:top-4 md:right-4 inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/90 text-[#2a1a0c] shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#c07b2c]"
+              aria-label="Đóng"
+              autoFocus
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); showPrev() }}
+              className="hidden md:flex absolute top-1/2 -translate-y-1/2 -left-4 xl:-left-12 h-12 w-12 items-center justify-center rounded-full bg-white/80 text-[#2a1a0c] shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#c07b2c]"
+              aria-label="Ảnh trước"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); showNext() }}
+              className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-4 xl:-right-12 h-12 w-12 items-center justify-center rounded-full bg-white/80 text-[#2a1a0c] shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#c07b2c]"
+              aria-label="Ảnh tiếp theo"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+            <div className="mt-4 text-center text-xs text-[#f7e6c5]/90 select-none">
+              {lightbox.index + 1} / {(lightbox.type === 'hero' ? baobiImages : lightbox.type === 'product' ? productImages : videos).length}
+            </div>
+          </div>
+        </div>
+      )}
+
+  <Section id="ve-chung-toi" className="pt-16 md:pt-20">
         <SectionHeader
           eyebrow="Bao bì bảo vệ trái cây"
           title="Giải pháp chống côn trùng sâm hại hiệu quả"
@@ -227,46 +367,150 @@ export default function App() {
         </div>
       </Section>
 
-      <Section id="san-pham" className="bg-white">
+  {/* Videos Section */}
+      <Section id="videos" className="bg-white pt-16 md:pt-20">
+        <SectionHeader
+          eyebrow="Video thực tế"
+          title="Quy trình sản xuất"
+          desc="Video giới thiệu quy trình sản xuất túi bao bảo vệ trái cây chuyên dụng."
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {videos.map((v, i) => (
+            <motion.div
+              key={v.src}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="group relative rounded-3xl overflow-hidden border border-[#ead5b3] bg-gradient-to-br from-white to-amber-50/40 shadow-[0_14px_38px_-22px_rgba(85,63,29,0.35)] hover:shadow-[0_22px_46px_-18px_rgba(85,63,29,0.45)]"
+            >
+              <button
+                type="button"
+                onClick={() => setLightbox({ type: 'video', index: i })}
+                className="w-full h-full text-left focus:outline-none focus:ring-2 focus:ring-[#c07b2c] focus:ring-offset-2 focus:ring-offset-white block"
+                aria-label={`Mở video ${v.title}`}
+              >
+                <div className="aspect-[4/3] relative overflow-hidden bg-[#2a1a0c]">
+                  <video
+                    src={v.src}
+                    preload="none"
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="h-14 w-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center text-[#c07b2c] shadow-lg group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 ml-1">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                  </div>
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/85 backdrop-blur px-3 py-1 text-[11px] font-semibold text-[#8c6123] border border-amber-200 shadow-sm">Video {i + 1}</span>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold text-[#3b2a17] leading-snug line-clamp-2">
+                    {v.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-[#6c5942] line-clamp-2">{v.desc}</p>
+                </div>
+              </button>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+  <Section id="san-pham" className="bg-white pt-16 md:pt-20">
         <SectionHeader
           eyebrow="Sản phẩm chính"
           title="Túi bao bảo vệ trái cây chuyên dụng"
           desc="Sản phẩm túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại. Bán sỉ, lẻ và tuyển đại lý."
         />
 
-        <div className="mt-12 grid gap-8">
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
           {productCollections.map((product, i) => (
             <motion.div
               key={product.name}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="rounded-3xl border border-[#ead5b3] bg-white/90 p-6 lg:p-8 shadow-[0_22px_40px_-30px_rgba(85,63,29,0.4)]"
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.55, delay: i * 0.07, ease: 'easeOut' }}
+              className="group relative flex flex-col rounded-3xl border border-[#ead5b3] bg-gradient-to-br from-white/95 via-white to-amber-50/40 shadow-[0_14px_38px_-22px_rgba(85,63,29,0.35)] overflow-hidden hover:shadow-[0_22px_46px_-18px_rgba(85,63,29,0.45)] transition-all duration-500"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:gap-8 lg:gap-10">
-                <div className="flex-1 space-y-3">
-                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f7e6c5] text-[#8c6123] text-xs font-semibold">
-                    {product.tag}
-                  </span>
-                  <h3 className="text-xl font-semibold text-[#3b2a17]">{product.name}</h3>
-                  <p className="text-sm text-[#6c5942] leading-relaxed">{product.desc}</p>
+              {product.image && (
+                <div className="relative">
+                  <motion.button
+                    type="button"
+                    whileHover={{ y: -4 }}
+                    onClick={() => setLightbox({ type: 'product', index: i })}
+                    className="group/image block w-full text-left focus:outline-none focus:ring-2 focus:ring-[#c07b2c] focus:ring-offset-2 focus:ring-offset-white rounded-none"
+                    aria-label={`Xem lớn hình sản phẩm ${product.name}`}
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        loading="lazy"
+                        sizes="(min-width: 1280px) 380px, (min-width: 640px) 50vw, 100vw"
+                        className="w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(.19,1,.22,1)] group-hover:scale-110 group-hover/image:scale-110"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/logo.png'
+                        }}
+                      />
+                    </div>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(42,26,12,0.55)] via-transparent to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
+                    <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur px-3 py-1 text-[11px] font-semibold text-[#8c6123] border border-amber-200 shadow-sm">
+                      {product.tag}
+                    </span>
+                  </motion.button>
                 </div>
-                <ul className="mt-5 md:mt-0 md:w-72 space-y-2.5 text-sm text-[#6c5942]">
+              )}
+              <div className="flex flex-col flex-1 p-6 lg:p-7 gap-4">
+                <div>
+                  <h3 className="text-lg font-semibold text-[#3b2a17] tracking-tight group-hover:text-[#a06418] transition-colors">
+                    {product.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#6c5942]">
+                    {product.desc}
+                  </p>
+                </div>
+                <ul className="space-y-2.5 text-sm text-[#6c5942]">
                   {product.bullets.map((bullet) => (
                     <li key={bullet} className="flex gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c] group-hover:scale-110 transition-transform" />
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto pt-2">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#8c6123] hover:text-[#a06418] transition group/btn"
+                  >
+                    Tìm hiểu thêm
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4 -mr-0.5 transition-transform group-hover/btn:translate-x-1"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_70%)]" />
             </motion.div>
           ))}
         </div>
       </Section>
 
-      <Section className="bg-[#fdf3df] rounded-[48px]">
+  <Section className="bg-[#fdf3df] rounded-[36px] md:rounded-[48px] pt-16 md:pt-20">
         <div className="flex flex-col gap-12">
           <SectionHeader
             eyebrow="Chất liệu & công nghệ"
@@ -298,7 +542,13 @@ export default function App() {
               className="rounded-3xl bg-white overflow-hidden shadow-[0_28px_60px_-36px_rgba(66,48,21,0.45)] border border-[#ead5b3] flex flex-col h-full"
             >
               <div className="aspect-[5/3] overflow-hidden">
-                <img src={materialSolution.image} alt={materialSolution.title} className="w-full h-full object-cover" />
+                <img
+                  src={materialSolution.image}
+                  alt={materialSolution.title}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 640px, 100vw"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6 md:p-8 space-y-4">
                 <div>
@@ -323,7 +573,7 @@ export default function App() {
           desc="Chỉ 4 bước ngắn gọn để biến ý tưởng bao bì thành kiện hàng sẵn sàng xuất khẩu."
         />
 
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
+  <div className="mt-10 md:mt-12 grid md:grid-cols-2 gap-6 md:gap-8">
           {processSteps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -347,14 +597,14 @@ export default function App() {
         </div>
       </Section>
 
-      <Section id="dai-ly" className="bg-[#fdf3df] rounded-[48px]">
+  <Section id="dai-ly" className="bg-[#fdf3df] rounded-[36px] md:rounded-[48px] pt-16 md:pt-20">
         <SectionHeader
           eyebrow="Cơ hội kinh doanh"
           title="Chương trình đại lý cấp 1 - Cơ hội vàng cho doanh nghiệp"
           desc="Tham gia mạng lưới đại lý cấp 1 của Minh Quân để phát triển kinh doanh bao bì bảo vệ trái cây. Chính sách hỗ trợ toàn diện, lợi nhuận hấp dẫn."
         />
 
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
+  <div className="mt-10 md:mt-12 grid md:grid-cols-2 gap-6 md:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -440,37 +690,35 @@ export default function App() {
         </div>
       </Section>
 
-      <Section>
+  <Section className="pt-16 md:pt-20">
         <SectionHeader
-          eyebrow="Đối tác tin dùng"
-          title="Được lựa chọn bởi các hệ thống bán lẻ và vùng nguyên liệu lớn"
-          desc="Giải pháp của Minh Quân sẽ sớm có mặt tại các tỉnh Đồng Tháp, Tiền Giang, Bình Thuận, Tây Ninh và xuất khẩu sang Hàn Quốc, Nhật Bản, EU."
+          eyebrow="Đối tác (đang tìm kiếm)"
+          title="Hiện diện tại Đồng Tháp – Đang mở rộng hợp tác"
+          desc="Sản phẩm hiện mới cung cấp tại Đồng Tháp. Chúng tôi đang tìm kiếm đối tác phân phối và đại lý tại các tỉnh khác. Liên hệ để trở thành một trong những đối tác đầu tiên."
         />
 
         <div className="mt-8 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 border border-amber-200 text-amber-800 font-semibold text-sm">
-            <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-            Coming Soon - Sắp ra mắt
+          <div className="inline-flex flex-col items-center gap-3">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 border border-amber-200 text-amber-800 font-semibold text-sm">
+              <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+              Đang tìm kiếm đối tác
+            </div>
+            <p className="text-sm text-[#6c5942] max-w-xl">
+              Chưa có đối tác chính thức. Đây là cơ hội để bạn trở thành đơn vị đồng hành đầu tiên cùng Minh Quân mở rộng thị trường.
+            </p>
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 opacity-60">
-          {partners.map((partner) => (
-            <div
-              key={partner}
-              className="rounded-2xl border border-[#ead5b3] bg-white px-4 py-6 text-center text-sm font-semibold text-[#3b2a17] shadow-sm relative"
-            >
-              {partner}
-              <div className="absolute inset-0 bg-white/50 rounded-2xl flex items-center justify-center">
-                <span className="text-xs text-gray-500 font-medium">Sắp có</span>
-              </div>
-            </div>
-          ))}
-        </div>
+        {partners.length === 0 && (
+          <div className="mt-12 p-10 border-2 border-dashed border-amber-200 rounded-3xl text-center bg-amber-50/40">
+            <p className="font-semibold text-[#8c6123]">Chưa có logo đối tác</p>
+            <p className="text-sm text-[#6c5942] mt-2">Liên hệ ngay để xuất hiện tại khu vực này sớm nhất.</p>
+          </div>
+        )}
       </Section>
 
-      <Section id="lien-he" className="py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <Section id="lien-he" className="py-20 md:py-24">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <div className="space-y-6">
             <SectionHeader
               eyebrow="Kết nối với Minh Quân"
