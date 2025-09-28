@@ -59,15 +59,16 @@ export default function App() {
   }, [])
 
   const heroHighlights = [
-    { label: 'Bao bì nông sản', value: '150+ mẫu khuôn carton' },
-    { label: 'Tiêu chuẩn', value: 'FSC, ISO 9001:2015' },
-    { label: 'Thời gian giao', value: '3 - 5 ngày mùa vụ' },
+    { label: 'Bao bì bảo vệ trái cây', value: 'Chống côn trùng sâm hại' },
+    { label: 'Chất liệu', value: 'Giấy phủ silicone 2 mặt' },
+    { label: 'Hệ thống đại lý', value: 'Tuyển đại lý cấp 1' },
   ]
 
   const materialSolution = {
-    title: 'Hệ carton kraft 5 lớp chuẩn xuất khẩu',
-    desc: 'Kết cấu 5 lớp (kraft trắng + kraft vàng + lõi sóng chịu lực) cùng phủ chống ẩm giúp kiện hàng bền chắc, giữ dáng đẹp từ kho đến container lạnh.',
-    specs: ['Tải trọng nén dọc tới 22kg', 'Chống ẩm kép: tráng PE + phủ nano', 'In offset 7 màu, tem QR chống nhòe', 'Lỗ thoáng tùy chỉnh theo từng giống trái'],
+    title: 'Túi bao giấy phủ silicone 2 mặt chuyên dụng',
+    desc: 'Chất liệu giấy cao cấp được phủ silicone 2 mặt tạo lớp bảo vệ chống thấm nước hoàn toàn, bảo vệ trái cây khỏi côn trùng sâm hại hiệu quả.',
+    specs: ['Giấy phủ silicone 2 mặt chống thấm 100%', 'Bảo vệ khỏi côn trùng, sâu bọ, ruồi trái cây', 'Kích thước đa dạng cho nhiều loại trái cây', 'Chất liệu an toàn, không độc hại'],
+    image: '/images/baobi/1.png',
   }
 
   const processSteps = [
@@ -79,22 +80,22 @@ export default function App() {
 
   const productCollections = [
     {
-      name: 'Thùng carton xuất khẩu',
-      tag: 'Carton 5 lớp',
-      desc: 'Thùng lỗ thoáng chuẩn pallet, chịu tải cao và chống ẩm, giữ trái cây ổn định trong vận chuyển xa.',
-      bullets: ['Kích thước theo pallet chuẩn 40ft', 'Tùy biến vị trí lỗ thoáng khí', 'Phủ chống ẩm kép, chịu tải tới 22kg'],
+      name: 'Túi bao bảo vệ trái cây',
+      tag: 'Giấy phủ silicone 2 mặt',
+      desc: 'Túi bao chuyên dụng làm từ giấy phủ silicone 2 mặt, chống thấm nước ngoài trời và bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại.',
+      bullets: ['Chất liệu giấy phủ silicone 2 mặt chống thấm', 'Bảo vệ khỏi côn trùng, sâu bọ, ruồi trái cây', 'Kích thước đa dạng phù hợp nhiều loại trái cây'],
     },
     {
-      name: 'Khay xốp & túi lưới',
-      tag: 'Bao bì mềm',
-      desc: 'Bộ khay EPS, túi lưới hoặc OPP đục lỗ giữ trái cây cố định, đồng bộ nhận diện màu sắc.',
-      bullets: ['Khay chống dập nhiều kích cỡ', 'Túi lưới chịu lực, thông thoáng', 'In logo, mã QR trực tiếp trên túi'],
+      name: 'Bán sỉ và lẻ',
+      tag: 'Giá cạnh tranh',
+      desc: 'Cung cấp sản phẩm với số lượng linh hoạt từ bán lẻ đến bán sỉ với giá cả cạnh tranh, chất lượng đảm bảo.',
+      bullets: ['Bán lẻ số lượng nhỏ cho nông dân', 'Bán sỉ số lượng lớn cho hợp tác xã', 'Giá ưu đãi theo số lượng đặt hàng'],
     },
     {
-      name: 'Tem nhãn & phụ kiện',
-      tag: 'Hoàn thiện thương hiệu',
-      desc: 'Tem truy xuất, màng co, dây đai đồng bộ giúp kiện hàng gọn đẹp và dễ kiểm soát chất lượng.',
-      bullets: ['Tem QR in chống nhòe', 'Màng co in logo, mã vạch', 'Dây đai, kẹp chì niêm phong'],
+      name: 'Chương trình đại lý cấp 1',
+      tag: 'Cơ hội kinh doanh',
+      desc: 'Tuyển đại lý cấp 1 toàn quốc với chính sách hỗ trợ hấp dẫn, đào tạo và phát triển thị trường cùng nhau.',
+      bullets: ['Chính sách giá đại lý ưu đãi', 'Hỗ trợ marketing và quảng bá', 'Đào tạo kỹ thuật và kinh doanh'],
     },
   ]
 
@@ -112,7 +113,7 @@ export default function App() {
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#f7e6c5] text-[#8c6123] text-sm font-medium"
             >
               <span className="h-2 w-2 rounded-full bg-[#c07b2c]" />
-              Bao bì nông sản Minh Quân
+              Bao bì bảo vệ trái cây Minh Quân
             </motion.div>
 
             <motion.h1
@@ -121,11 +122,11 @@ export default function App() {
               transition={{ duration: 0.9, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#2a1a0c]"
             >
-              Hệ sinh thái bao bì chuẩn xuất khẩu cho nông sản Việt
+              Bao bì bảo vệ trái cây chống côn trùng sâm hại
             </motion.h1>
 
             <p className="text-lg text-[#6c5942] max-w-xl">
-              Chúng tôi thiết kế và sản xuất trọn bộ giải pháp đóng gói: thùng carton thoáng khí, khay chống dập, tem truy xuất, túi lưới và phụ kiện đồng bộ. Giữ trái cây luôn tươi đẹp trong suốt hành trình.
+              Chuyên sản xuất túi bao bằng chất liệu giấy phủ silicone 2 mặt chống thấm nước ngoài trời. Bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại. Bán sỉ, lẻ và tuyển đại lý cấp 1 toàn quốc.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -133,13 +134,13 @@ export default function App() {
                 href="#san-pham"
                 className="px-6 py-3 rounded-2xl bg-[#c07b2c] text-white shadow-[0_12px_30px_-12px_rgba(192,123,44,0.7)] hover:bg-[#a7661f] transition"
               >
-                Khám phá bộ sưu tập
+                Xem sản phẩm bảo vệ trái cây
               </a>
               <a
-                href="#lien-he"
+                href="#dai-ly"
                 className="px-6 py-3 rounded-2xl border border-[#d9c19d] text-[#8c6123] hover:bg-white transition"
               >
-                Nhận tư vấn 1-1
+                Đăng ký đại lý cấp 1
               </a>
             </div>
 
@@ -160,8 +161,8 @@ export default function App() {
             </div>
 
             <div className="flex flex-wrap gap-5 text-sm text-[#6c5942]">
-              <div className="inline-flex items-center gap-2"><FiShield className="text-[#c07b2c]" /> Seal xuất khẩu, chống ẩm kép</div>
-              <div className="inline-flex items-center gap-2"><FiStar className="text-[#c07b2c]" /> Hình ảnh thương hiệu đồng bộ</div>
+              <div className="inline-flex items-center gap-2"><FiShield className="text-[#c07b2c]" /> Chống côn trùng sâm hại hiệu quả</div>
+              <div className="inline-flex items-center gap-2"><FiStar className="text-[#c07b2c]" /> Chống thấm nước ngoài trời</div>
             </div>
           </div>
 
@@ -213,24 +214,24 @@ export default function App() {
 
       <Section id="ve-chung-toi">
         <SectionHeader
-          eyebrow="Bao bì chuyên biệt"
-          title="Giải pháp đóng gói đồng bộ cho chuỗi nông sản"
-          desc="Bốn năng lực cốt lõi giúp chúng tôi đồng hành cùng nông trại và hệ thống phân phối trong suốt mùa vụ."
+          eyebrow="Bao bì bảo vệ trái cây"
+          title="Giải pháp chống côn trùng sâm hại hiệu quả"
+          desc="Bốn ưu điểm vượt trội của túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ trái cây an toàn."
         />
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <Feature icon={FiBox} title="Thiết kế tối ưu trái cây" desc="Thùng lỗ thoáng gọn nhẹ, khoét tay cầm chắc chắn, tối ưu xếp pallet và hạ nhiệt nhanh." />
-          <Feature icon={FiShield} title="Chuẩn xuất khẩu" desc="Giấy đạt chuẩn FSC, keo chịu lực, chống ẩm kép phù hợp container lạnh và vận chuyển xa." />
-          <Feature icon={FiStar} title="Đồng bộ thương hiệu" desc="In offset, flexo 7 màu, phủ UV định vị. Tem, mã QR đồng bộ trên mọi cấu phần bao bì." />
-          <Feature icon={FiPhoneCall} title="Tư vấn mùa vụ" desc="Đội ngũ trực 24/7, báo giá trong 15 phút, điều phối giao linh hoạt theo sản lượng thực tế." />
+          <Feature icon={FiBox} title="Chống côn trùng sâm hại" desc="Túi bao bảo vệ hiệu quả trái cây khỏi côn trùng, sâu bọ và các loại sâm hại trong quá trình phát triển." />
+          <Feature icon={FiShield} title="Chống thấm nước" desc="Chất liệu giấy phủ silicone 2 mặt chống thấm nước ngoài trời, bảo vệ trái cây trong mọi điều kiện thời tiết." />
+          <Feature icon={FiStar} title="Chất lượng cao" desc="Sản phẩm được kiểm tra chất lượng nghiêm ngặt, đảm bảo độ bền và hiệu quả bảo vệ tối ưu." />
+          <Feature icon={FiPhoneCall} title="Hỗ trợ đại lý" desc="Chương trình đại lý cấp 1 hấp dẫn, hỗ trợ kinh doanh và phát triển thị trường toàn quốc." />
         </div>
       </Section>
 
       <Section id="san-pham" className="bg-white">
         <SectionHeader
-          eyebrow="Danh mục sản phẩm"
-          title="3 nhóm giải pháp bao bì chủ lực"
-          desc="Chọn tổ hợp phù hợp nhu cầu của bạn: thùng carton xuất khẩu, bao bì mềm chống dập và phụ kiện hoàn thiện nhận diện."
+          eyebrow="Sản phẩm chính"
+          title="Túi bao bảo vệ trái cây chuyên dụng"
+          desc="Sản phẩm túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại. Bán sỉ, lẻ và tuyển đại lý."
         />
 
         <div className="mt-12 grid gap-8">
@@ -269,22 +270,22 @@ export default function App() {
         <div className="flex flex-col gap-12">
           <SectionHeader
             eyebrow="Chất liệu & công nghệ"
-            title="Tập trung vào độ bền, thẩm mỹ và trải nghiệm mở hộp"
-            desc="Bao bì cho nông sản không chỉ phải chịu tải tốt mà còn cần truyền tải câu chuyện thương hiệu và tạo cảm giác tin cậy ngay từ lần đầu chạm vào. Minh Quân chọn lọc từng lớp giấy, màng phủ và phụ kiện để mỗi thùng carton vừa chắc chắn vừa sang trọng."
+            title="Giấy phủ silicone 2 mặt - Công nghệ bảo vệ tiên tiến"
+            desc="Túi bao bảo vệ trái cây của Minh Quân sử dụng công nghệ phủ silicone 2 mặt tiên tiến, tạo ra lớp bảo vệ hoàn hảo chống thấm nước và côn trùng sâm hại. Chất liệu an toàn, thân thiện môi trường và hiệu quả bảo vệ cao."
           />
 
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
             <div className="space-y-6">
               <div className="text-sm text-[#6c5942] leading-relaxed bg-white/80 border border-[#ead5b3] rounded-3xl p-6 shadow-[0_18px_36px_-28px_rgba(85,63,29,0.45)]">
-                Chúng tôi kiểm soát toàn bộ chuỗi sản xuất: từ sợi giấy đầu vào, công đoạn xử lý chống ẩm, in ấn, đến khâu bắt khuy – gấp – đóng kiện. Mỗi cấu trúc thùng đều được mô phỏng tải trọng, thử nghiệm container lạnh và kiểm tra sau khi va đập để đảm bảo độ bền thực tế trước khi giao cho vùng nguyên liệu.
+                Chúng tôi kiểm soát toàn bộ quy trình sản xuất túi bao bảo vệ trái cây: từ lựa chọn giấy chất lượng cao, công đoạn phủ silicone 2 mặt, đến khâu cắt may và đóng gói thành phẩm. Mỗi sản phẩm đều được kiểm tra chất lượng nghiêm ngặt về độ chống thấm, độ bền và hiệu quả bảo vệ trước khi đến tay khách hàng.
               </div>
               <div className="rounded-3xl bg-white/85 border border-[#ead5b3] p-6 shadow-[0_14px_34px_-26px_rgba(85,63,29,0.4)] space-y-3 text-sm text-[#6c5942]">
-                <div className="font-semibold text-[#3b2a17]">Bốn trụ cột trong thiết kế bao bì</div>
+                <div className="font-semibold text-[#3b2a17]">Bốn ưu điểm vượt trội của túi bao bảo vệ trái cây</div>
                 <ul className="space-y-3">
-                  <li>• Lớp ngoài kraft trắng hoặc duplex phủ UV giữ màu in sắc sảo; lớp trong kraft vàng tăng ma sát, hạn chế móp méo khi xếp chồng.</li>
-                  <li>• Hệ chống ẩm đa tầng: tráng PE, phủ nano và túi hút ẩm tích hợp giúp thùng ổn định khi nhiệt độ biến động.</li>
-                  <li>• Tem QR truy xuất in chống nhòe, kết nối dữ liệu sản lượng để đối tác kiểm tra chất lượng từng lô hàng trong vài giây.</li>
-                  <li>• Cụm lỗ thoáng khí tùy chỉnh theo giống xoài, mít, tối ưu dòng lưu chuyển không khí giữ trái luôn tươi giòn tới điểm bán.</li>
+                  <li>• Lớp phủ silicone 2 mặt tạo khả năng chống thấm nước hoàn toàn, bảo vệ trái cây trong mọi điều kiện thời tiết ngoài trời.</li>
+                  <li>• Ngăn chặn hiệu quả côn trùng, sâu bọ, ruồi trái cây và các loại sâm hại khác tiếp cận và gây hại cho trái cây.</li>
+                  <li>• Chất liệu giấy an toàn, không độc hại, thân thiện với môi trường và không ảnh hưởng đến chất lượng trái cây.</li>
+                  <li>• Kích thước đa dạng phù hợp với nhiều loại trái cây khác nhau như xoài, mít, bưởi, cam, chanh và các loại trái cây khác.</li>
                 </ul>
               </div>
             </div>
@@ -346,20 +347,123 @@ export default function App() {
         </div>
       </Section>
 
+      <Section id="dai-ly" className="bg-[#fdf3df] rounded-[48px]">
+        <SectionHeader
+          eyebrow="Cơ hội kinh doanh"
+          title="Chương trình đại lý cấp 1 - Cơ hội vàng cho doanh nghiệp"
+          desc="Tham gia mạng lưới đại lý cấp 1 của Minh Quân để phát triển kinh doanh bao bì bảo vệ trái cây. Chính sách hỗ trợ toàn diện, lợi nhuận hấp dẫn."
+        />
+
+        <div className="mt-12 grid md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="rounded-3xl border border-[#ead5b3] bg-white/90 p-6 lg:p-8 shadow-[0_22px_40px_-30px_rgba(85,63,29,0.4)]"
+          >
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f7e6c5] text-[#8c6123] text-xs font-semibold">
+                Quyền lợi đại lý
+              </div>
+              <h3 className="text-xl font-semibold text-[#3b2a17]">Chính sách hỗ trợ toàn diện</h3>
+              <ul className="space-y-3 text-sm text-[#6c5942]">
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Giá đại lý ưu đãi lên đến 30% so với giá bán lẻ</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Hỗ trợ marketing: banner, brochure, mẫu sản phẩm miễn phí</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Đào tạo kỹ thuật và kinh doanh từ đội ngũ chuyên gia</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Bảo vệ vùng độc quyền, không cạnh tranh giá</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+            className="rounded-3xl border border-[#ead5b3] bg-white/90 p-6 lg:p-8 shadow-[0_22px_40px_-30px_rgba(85,63,29,0.4)]"
+          >
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f7e6c5] text-[#8c6123] text-xs font-semibold">
+                Điều kiện tham gia
+              </div>
+              <h3 className="text-xl font-semibold text-[#3b2a17]">Yêu cầu đại lý cấp 1</h3>
+              <ul className="space-y-3 text-sm text-[#6c5942]">
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Có kinh nghiệm kinh doanh trong lĩnh vực nông nghiệp</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Cam kết đặt hàng tối thiểu 50 - 100 thùng</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Có mạng lưới khách hàng nông dân, hợp tác xã</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#c07b2c]" />
+                  <span>Có kho bãi và phương tiện vận chuyển</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-8 text-center">
+          <div className="inline-flex flex-col sm:flex-row gap-4">
+            <a
+              href="#lien-he"
+              className="px-8 py-3 rounded-2xl bg-[#c07b2c] text-white shadow-[0_12px_30px_-12px_rgba(192,123,44,0.7)] hover:bg-[#a7661f] transition font-semibold"
+            >
+              Đăng ký đại lý ngay
+            </a>
+            <a
+              href="tel:0913937841"
+              className="px-8 py-3 rounded-2xl border border-[#d9c19d] text-[#8c6123] hover:bg-white transition font-semibold"
+            >
+              Gọi tư vấn: 0913 937 841
+            </a>
+          </div>
+        </div>
+      </Section>
+
       <Section>
         <SectionHeader
           eyebrow="Đối tác tin dùng"
           title="Được lựa chọn bởi các hệ thống bán lẻ và vùng nguyên liệu lớn"
-          desc="Giải pháp của Minh Quân đã có mặt tại các tỉnh Đồng Tháp, Tiền Giang, Bình Thuận, Tây Ninh và xuất khẩu sang Hàn Quốc, Nhật Bản, EU."
+          desc="Giải pháp của Minh Quân sẽ sớm có mặt tại các tỉnh Đồng Tháp, Tiền Giang, Bình Thuận, Tây Ninh và xuất khẩu sang Hàn Quốc, Nhật Bản, EU."
         />
 
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="mt-8 text-center">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 border border-amber-200 text-amber-800 font-semibold text-sm">
+            <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+            Coming Soon - Sắp ra mắt
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 opacity-60">
           {partners.map((partner) => (
             <div
               key={partner}
-              className="rounded-2xl border border-[#ead5b3] bg-white px-4 py-6 text-center text-sm font-semibold text-[#3b2a17] shadow-sm"
+              className="rounded-2xl border border-[#ead5b3] bg-white px-4 py-6 text-center text-sm font-semibold text-[#3b2a17] shadow-sm relative"
             >
               {partner}
+              <div className="absolute inset-0 bg-white/50 rounded-2xl flex items-center justify-center">
+                <span className="text-xs text-gray-500 font-medium">Sắp có</span>
+              </div>
             </div>
           ))}
         </div>
@@ -370,8 +474,8 @@ export default function App() {
           <div className="space-y-6">
             <SectionHeader
               eyebrow="Kết nối với Minh Quân"
-              title="Nhận tư vấn đóng gói riêng cho mùa vụ của bạn"
-              desc="Đội ngũ kỹ thuật luôn sẵn sàng khảo sát thực tế, lên cấu trúc thùng và mẫu in ngay trong ngày."
+              title="Đặt hàng túi bao bảo vệ trái cây hoặc đăng ký đại lý"
+              desc="Liên hệ ngay để được tư vấn sản phẩm túi bao bảo vệ trái cây và thông tin chi tiết về chương trình đại lý cấp 1."
             />
             <ul className="space-y-3 text-[#6c5942] text-sm">
               <li>• Zalo: 0913 937 841</li>
@@ -380,7 +484,7 @@ export default function App() {
             </ul>
             <div className="text-sm text-[#8c6123] bg-[#f7e6c5] border border-[#ead5b3] rounded-2xl px-4 py-3 inline-flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-[#c07b2c]" />
-              Hỗ trợ thiết kế file in miễn phí khi đặt đơn hàng đầu tiên.
+              Tặng mẫu sản phẩm miễn phí cho đơn hàng đầu tiên và đại lý mới.
             </div>
           </div>
           <div className="rounded-3xl bg-white p-8 shadow-[0_24px_50px_-24px_rgba(66,48,21,0.4)] border border-[#ead5b3] flex flex-col items-center gap-5">
