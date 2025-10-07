@@ -1,14 +1,21 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function PurchasePolicy() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="container py-12">
-        <nav className="text-sm text-gray-600 mb-6">
-          <Link className="hover:text-brand-600" to="/">Trang chủ</Link>
-          <span className="mx-2">/</span>
-          <span className="text-gray-900">Chính sách mua hàng</span>
-        </nav>
+    <>
+      <SEO 
+        title="Chính Sách Mua Hàng - Bao Bì Minh Quân | Đặt Hàng, Thanh Toán, Vận Chuyển"
+        description="Chính sách mua hàng bao bì trái cây tại Bao Bì Minh Quân: điều kiện đặt hàng thùng carton xuất khẩu, xốp, túi OPP, thanh toán, giao nhận và chính sách đổi trả sản phẩm."
+        keywords="chính sách mua hàng, đặt hàng bao bì, thanh toán, vận chuyển, đổi trả, bảo hành, Bao Bì Minh Quân, mua bao bì trái cây"
+      />
+      <main className="min-h-screen bg-white">
+        <div className="container py-12">
+          <nav className="text-sm text-gray-600 mb-6">
+            <Link className="hover:text-brand-600" to="/">Trang chủ</Link>
+            <span className="mx-2">/</span>
+            <span className="text-gray-900">Chính sách mua hàng</span>
+          </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold">Chính sách mua hàng</h1>
         <p className="mt-3 text-gray-600 max-w-3xl">
@@ -108,5 +115,6 @@ export default function PurchasePolicy() {
         </section>
       </div>
     </main>
+    </>
   )
 }

@@ -1,0 +1,11 @@
+# Bao Bì Minh Quân - Robots.txt
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /videos/
+
+# Sitemaps
+Sitemap: https://baobiminhnquan.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1

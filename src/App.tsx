@@ -1,6 +1,7 @@
 import { FiBox, FiPhoneCall, FiShield, FiStar } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import SEO from './components/SEO'
 
 const Section = ({ id, className = '', children }: { id?: string; className?: string; children: React.ReactNode }) => (
   <section id={id} className={`py-20 md:py-24 ${className}`}>
@@ -150,6 +151,11 @@ export default function App() {
 
   return (
     <>
+      <SEO 
+        title="Bao Bì Minh Quân - Bao Bì Trái Cây Xuất Khẩu | Thùng Carton, Xốp, Túi OPP"
+        description="Chuyên cung cấp bao bì xoài, mít xuất khẩu: thùng carton thoáng khí 5-7 lớp, khay xốp PE chống dập, túi lưới PE/OPP trong suốt, tem QR truy xuất nguồn gốc, màng co POF. Chuẩn VietGAP, GlobalGAP. Giao hàng toàn quốc."
+        keywords="bao bì trái cây, bao bì xoài, bao bì mít, thùng carton xuất khẩu, khay xốp PE, túi lưới PE, túi OPP, tem QR truy xuất, màng co POF, bao bì VietGAP, bao bì GlobalGAP, giấy gói xoài, giấy gói mít, bao bì Đồng Tháp, bao bì ĐBSCL"
+      />
       <Section id="home" className="pt-16 md:pt-20">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div className="space-y-8">

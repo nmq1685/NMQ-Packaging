@@ -1,14 +1,21 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="container py-12">
-        <nav className="text-sm text-gray-600 mb-6">
-          <Link className="hover:text-brand-600" to="/">Trang chủ</Link>
-          <span className="mx-2">/</span>
-          <span className="text-gray-900">Chính sách bảo mật</span>
-        </nav>
+    <>
+      <SEO 
+        title="Chính Sách Bảo Mật - Bao Bì Minh Quân | Bảo Vệ Thông Tin Khách Hàng"
+        description="Chính sách bảo mật thông tin khách hàng của Bao Bì Minh Quân. Cam kết bảo vệ dữ liệu cá nhân, thông tin đơn hàng bao bì trái cây xuất khẩu một cách an toàn."
+        keywords="chính sách bảo mật, bảo vệ thông tin khách hàng, an toàn dữ liệu, Bao Bì Minh Quân, bảo mật thông tin"
+      />
+      <main className="min-h-screen bg-white">
+        <div className="container py-12">
+          <nav className="text-sm text-gray-600 mb-6">
+            <Link className="hover:text-brand-600" to="/">Trang chủ</Link>
+            <span className="mx-2">/</span>
+            <span className="text-gray-900">Chính sách bảo mật</span>
+          </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold">Chính sách bảo mật</h1>
         <p className="mt-3 text-gray-600 max-w-3xl">Chính sách này mô tả cách Bao Bì Minh Quân thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của khách hàng.</p>
@@ -75,5 +82,6 @@ export default function PrivacyPolicy() {
         </section>
       </div>
     </main>
+    </>
   )
 }
