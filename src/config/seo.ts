@@ -1,117 +1,112 @@
 /**
  * SEO Keywords & Metadata Configuration
- * Bao Bì Minh Quân - Tối ưu SEO với đa dạng từ khóa
+ * Túi Bao Xoài Minh Quân - Tối ưu SEO tập trung vào túi bao xoài
  */
 
 export const SEO_CONFIG = {
-  siteName: 'Bao Bì Minh Quân',
+  siteName: 'Túi Bao Xoài Minh Quân',
   siteUrl: 'https://baobiminhnquan.com',
   
-  // Từ khóa chính - Primary Keywords
+  // Từ khóa chính - Primary Keywords (Tập trung vào túi bao xoài)
   primaryKeywords: [
-    'bao bì trái cây',
-    'bao bì xoài',
-    'bao bì mít',
-    'thùng carton xuất khẩu',
-    'bao bì xuất khẩu',
+    'túi bao xoài',
+    'túi bọc xoài',
+    'túi giấy bao xoài',
+    'túi bảo vệ xoài',
+    'giấy phủ silicone bao xoài',
   ],
   
-  // Từ khóa sản phẩm - Product Keywords
+  // Từ khóa sản phẩm - Product Keywords (Đặc tính túi bao xoài)
   productKeywords: [
-    'thùng carton thoáng khí',
-    'thùng carton 5 lớp',
-    'thùng carton 7 lớp',
-    'khay xốp trái cây',
-    'xốp PE chống dập',
-    'giấy định hình',
-    'túi lưới PE',
-    'túi OPP trong suốt',
-    'túi bảo vệ trái cây',
-    'tem QR truy xuất',
-    'tem nhãn trái cây',
-    'màng co POF',
-    'giấy gói xoài',
-    'giấy gói mít',
-    'giấy phủ silicone',
+    'túi bao xoài chống côn trùng',
+    'túi bao xoài chống thấm',
+    'túi bao xoài xuất khẩu',
+    'túi bao xoài cát hòa lộc',
+    'túi bọc xoài chống ruồi',
+    'túi bao xoài chống sâu bệnh',
+    'giấy gói xoài chống côn trùng',
+    'giấy phủ silicone 2 mặt bao xoài',
+    'túi bao xoài giấy kraft',
+    'túi bảo vệ xoài non',
+    'túi bọc xoài trên cây',
+    'túi che xoài chống nắng',
   ],
   
-  // Từ khóa theo loại trái cây - Fruit-specific Keywords
+  // Từ khóa theo loại xoài - Mango Variety Keywords
   fruitKeywords: [
-    'bao bì xoài cát hòa lộc',
-    'bao bì mít thái',
-    'bao bì sầu riêng',
-    'bao bì thanh long',
-    'bao bì bưởi',
-    'bao bì măng cụt',
-    'bao bì chôm chôm',
-    'bao bì nhãn',
-    'bao bì vải thiều',
+    'túi bao xoài cát hòa lộc',
+    'túi bao xoài cát chu',
+    'túi bao xoài Úc',
+    'túi bao xoài Đài Loan',
+    'túi bao xoài keo',
+    'túi bao xoài tượng',
+    'túi bao xoài ghép',
   ],
   
   // Từ khóa tiêu chuẩn - Standard Keywords
   standardKeywords: [
-    'VietGAP',
-    'GlobalGAP',
-    'bao bì chuẩn xuất khẩu',
-    'bao bì organic',
-    'bao bì an toàn thực phẩm',
+    'túi bao xoài VietGAP',
+    'túi bao xoài GlobalGAP',
+    'túi bao xoài chuẩn xuất khẩu',
+    'túi bao xoài organic',
+    'túi bao xoài an toàn',
   ],
   
   // Từ khóa địa phương - Location Keywords
   locationKeywords: [
-    'bao bì Đồng Tháp',
-    'bao bì Tiền Giang',
-    'bao bì Bến Tre',
-    'bao bì ĐBSCL',
-    'bao bì miền Tây',
-    'bao bì Cần Thơ',
-    'bao bì Vĩnh Long',
-    'bao bì An Giang',
-    'bao bì Long An',
+    'túi bao xoài Đồng Tháp',
+    'túi bao xoài Tiền Giang',
+    'túi bao xoài Bến Tre',
+    'túi bao xoài ĐBSCL',
+    'túi bao xoài miền Tây',
+    'túi bao xoài Cần Thơ',
+    'túi bao xoài Vĩnh Long',
+    'túi bao xoài An Giang',
+    'túi bao xoài Cao Lãnh',
   ],
   
   // Từ khóa dịch vụ - Service Keywords
   serviceKeywords: [
-    'cung cấp bao bì trái cây',
-    'sản xuất bao bì trái cây',
-    'in ấn bao bì',
-    'thiết kế bao bì',
-    'bao bì giá reiẻ',
-    'bao bì số lượng lớn',
-    'đại lý bao bì',
-    'nhà phân phối bao bì',
+    'bán sỉ túi bao xoài',
+    'bán lẻ túi bao xoài',
+    'đại lý túi bao xoài',
+    'cung cấp túi bao xoài',
+    'sản xuất túi bao xoài',
+    'túi bao xoài giá rẻ',
+    'túi bao xoài số lượng lớn',
+    'nhà phân phối túi bao xoài',
   ],
   
   // Long-tail keywords (từ khóa dài)
   longTailKeywords: [
-    'mua thùng carton đựng xoài xuất khẩu',
-    'bao bì trái cây chuẩn quốc tế',
-    'thùng carton thoáng khí cho xoài',
-    'túi lưới PE bảo vệ trái cây',
-    'tem QR truy xuất nguồn gốc trái cây',
-    'bao bì xoài cát hòa lộc xuất khẩu',
-    'giấy gói xoài chống côn trùng',
-    'xốp chống dập cho mít thái',
-    'màng co POF bao bì trái cây',
-    'bao bì nông sản ĐBSCL',
+    'mua túi bao xoài chống côn trùng',
+    'túi bao xoài giấy phủ silicone 2 mặt',
+    'túi bọc xoài chống thấm nước ngoài trời',
+    'túi bao xoài cát hòa lộc xuất khẩu',
+    'giấy gói xoài chống ruồi trái cây',
+    'túi bao xoài chống sâu đục quả',
+    'túi bảo vệ xoài non trên cây',
+    'túi bao xoài ĐBSCL giá rẻ',
+    'đại lý túi bao xoài toàn quốc',
+    'bán sỉ túi bao xoài Đồng Tháp',
   ],
   
   // Meta descriptions cho các trang
   pages: {
     home: {
-      title: 'Bao Bì Minh Quân - Bao Bì Trái Cây Xuất Khẩu | Thùng Carton, Xốp, Túi OPP',
-      description: 'Chuyên cung cấp bao bì xoài, mít xuất khẩu: thùng carton thoáng khí 5-7 lớp, khay xốp PE chống dập, túi lưới/OPP, tem QR truy xuất, màng co POF. Chuẩn VietGAP, GlobalGAP. Giao toàn quốc.',
-      keywords: 'bao bì trái cây, bao bì xoài, bao bì mít, thùng carton xuất khẩu, khay xốp, túi OPP, tem QR, VietGAP',
+      title: 'Túi Bao Xoài Minh Quân - Giấy Phủ Silicone Chống Thấm, Chống Côn Trùng | Bán Sỉ Lẻ & Tuyển Đại Lý',
+      description: 'Chuyên sản xuất túi bao xoài chất liệu giấy phủ silicone 2 mặt chống thấm nước, chống côn trùng xâm hại hiệu quả. Bán sỉ, bán lẻ và tuyển đại lý cấp 1 toàn quốc. Giao hàng tận nơi, giá cạnh tranh.',
+      keywords: 'túi bao xoài, túi bọc xoài, giấy phủ silicone, chống côn trùng, bán sỉ túi bao xoài, đại lý túi bao xoài',
     },
     privacy: {
-      title: 'Chính Sách Bảo Mật - Bao Bì Minh Quân',
-      description: 'Chính sách bảo mật thông tin khách hàng của Bao Bì Minh Quân - Cam kết bảo vệ dữ liệu cá nhân',
-      keywords: 'chính sách bảo mật, bảo vệ thông tin, Bao Bì Minh Quân',
+      title: 'Chính Sách Bảo Mật - Túi Bao Xoài Minh Quân',
+      description: 'Chính sách bảo mật thông tin khách hàng của Túi Bao Xoài Minh Quân - Cam kết bảo vệ dữ liệu cá nhân',
+      keywords: 'chính sách bảo mật, bảo vệ thông tin, Túi Bao Xoài Minh Quân',
     },
     purchase: {
-      title: 'Chính Sách Mua Hàng - Bao Bì Minh Quân',
-      description: 'Chính sách mua hàng, thanh toán, vận chuyển và đổi trả sản phẩm bao bì trái cây tại Bao Bì Minh Quân',
-      keywords: 'chính sách mua hàng, thanh toán, vận chuyển, đổi trả, Bao Bì Minh Quân',
+      title: 'Chính Sách Mua Hàng - Túi Bao Xoài Minh Quân',
+      description: 'Chính sách mua hàng, thanh toán, vận chuyển và đổi trả sản phẩm túi bao xoài tại Túi Bao Xoài Minh Quân',
+      keywords: 'chính sách mua hàng, thanh toán, vận chuyển, đổi trả, túi bao xoài',
     },
   },
 }

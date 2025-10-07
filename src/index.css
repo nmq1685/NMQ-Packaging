@@ -1,9 +1,9 @@
+/* Import Google Fonts - phong cách vùng quê */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&family=Kalam:wght@300;400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import Google Fonts - phong cách vùng quê */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap');
 
 /* Custom base styles */
 :root {
@@ -16,7 +16,7 @@ html, body, #root {
 
 body {
   @apply bg-countryside-straw-50 text-countryside-earth-900 antialiased;
-  font-family: 'Nunito', 'Inter', 'Segoe UI', sans-serif;
+  font-family: 'Be Vietnam Pro', 'Nunito', 'Inter', 'Segoe UI', sans-serif;
   background-image: 
     url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 Q 35 15 30 25 Q 25 15 30 10' fill='%234a9a3d' opacity='0.03'/%3E%3Cpath d='M45 30 Q 50 35 45 45 Q 40 35 45 30' fill='%234a9a3d' opacity='0.03'/%3E%3Cpath d='M15 45 Q 20 50 15 60 Q 10 50 15 45' fill='%234a9a3d' opacity='0.03'/%3E%3C/svg%3E"),
     url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3CfeColorMatrix values='0 0 0 0 0.8, 0 0 0 0 0.7, 0 0 0 0 0.5, 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
@@ -101,9 +101,29 @@ html {
   animation: wiggle 0.5s ease-in-out;
 }
 
-/* Handwriting style */
-.handwriting {
-  font-family: 'Caveat', cursive;
-  letter-spacing: 0.02em;
+/* Bounce animation cho floating contact button */
+@keyframes strongBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  10% {
+    transform: translateY(-20px) scale(1.1);
+  }
+  30% {
+    transform: translateY(-12px) scale(1.05);
+  }
+  40% {
+    transform: translateY(-8px) scale(1.02);
+  }
 }
 
+.contact-bounce {
+  animation: strongBounce 2.5s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+/* Handwriting style */
+.handwriting {
+  font-family: 'Kalam', cursive;
+  letter-spacing: 0.02em;
+}

@@ -41,6 +41,8 @@ export default function App() {
   const [baobiImages, setBaobiImages] = useState<string[]>([])
   // Unified lightbox state for hero (bao bì) & product images
   const [lightbox, setLightbox] = useState<{ type: 'hero' | 'product' | 'video'; index: number } | null>(null)
+  // Contact menu state
+  const [showContactMenu, setShowContactMenu] = useState(false)
 
   const closeLightbox = () => setLightbox(null)
   const showPrev = () =>
@@ -93,45 +95,45 @@ export default function App() {
   }, [])
 
   const heroHighlights = [
-    { label: 'Bao bì bảo vệ trái cây', value: 'Chống côn trùng xâm hại' },
-    { label: 'Chất liệu', value: 'Giấy phủ silicone 2 mặt' },
-    { label: 'Hệ thống đại lý', value: 'Tuyển đại lý cấp 1' },
+    { label: 'Sản phẩm chuyên dụng', value: 'Túi bao xoài chống côn trùng' },
+    { label: 'Chất liệu cao cấp', value: 'Giấy phủ silicone 2 mặt' },
+    { label: 'Hệ thống phân phối', value: 'Bán sỉ, lẻ & tuyển đại lý' },
   ]
 
   const materialSolution = {
-    title: 'Túi bao giấy phủ silicone 2 mặt chuyên dụng',
-    desc: 'Chất liệu giấy cao cấp được phủ silicone 2 mặt tạo lớp bảo vệ chống thấm nước hoàn toàn, bảo vệ trái cây khỏi côn trùng xâm hại hiệu quả.',
-    specs: ['Giấy phủ silicone 2 mặt chống thấm 100%', 'Bảo vệ khỏi côn trùng, sâu bọ, ruồi trái cây', 'Kích thước đa dạng cho nhiều loại trái cây', 'Chất liệu an toàn, không độc hại'],
+    title: 'Túi bao xoài giấy phủ silicone 2 mặt chuyên dụng',
+    desc: 'Chất liệu giấy cao cấp được phủ silicone 2 mặt tạo lớp bảo vệ chống thấm nước hoàn toàn, bảo vệ xoài khỏi côn trùng xâm hại, ruồi trái cây và sâu đục quả hiệu quả.',
+    specs: ['Giấy phủ silicone 2 mặt chống thấm 100%', 'Bảo vệ xoài khỏi côn trùng, ruồi trái cây, sâu đục quả', 'Kích thước đa dạng phù hợp các loại xoài: Cát Hòa Lộc, Cát Chu, Xoài Úc', 'Chất liệu an toàn, không độc hại, thân thiện môi trường'],
     image: '/images/baobi/1.png',
   }
 
   const processSteps = [
-    { title: 'Khảo sát sản phẩm', desc: 'Đo kích thước, tải trọng, điều kiện bảo quản để chọn cấu trúc bao bì phù hợp.' },
-    { title: 'Thiết kế - phê duyệt mẫu', desc: 'Gửi mẫu in 2D/3D, tinh chỉnh nhận diện cho tới khi bạn hài lòng.' },
-    { title: 'Sản xuất & kiểm tra', desc: 'Gia công, QC từng lô hàng, đóng kiện sẵn sàng vận chuyển.' },
-    { title: 'Giao hàng & hỗ trợ', desc: 'Điều phối giao trong 3-5 ngày, đồng hành mùa vụ để điều chỉnh linh hoạt.' },
+    { title: 'Khảo sát nhu cầu', desc: 'Xác định loại xoài, kích thước quả, số lượng để tư vấn túi bao phù hợp nhất.' },
+    { title: 'Gửi mẫu - phê duyệt', desc: 'Gửi mẫu túi bao để khách hàng kiểm tra chất lượng, độ bền và độ vừa vặn.' },
+    { title: 'Sản xuất & kiểm tra', desc: 'Sản xuất theo đơn hàng, QC nghiêm ngặt từng lô, đóng gói cẩn thận.' },
+    { title: 'Giao hàng & hỗ trợ', desc: 'Giao hàng tận nơi trong 2-3 ngày, hỗ trợ hướng dẫn sử dụng và chăm sóc sau bán.' },
   ]
 
   const productCollections = [
     {
-      name: 'Túi bao bảo vệ trái cây',
-      tag: 'Giấy phủ silicone 2 mặt',
-      desc: 'Túi bao chuyên dụng làm từ giấy phủ silicone 2 mặt, chống thấm nước ngoài trời và bảo vệ hiệu quả trái cây khỏi côn trùng xâm hại.',
-      bullets: ['Chất liệu giấy phủ silicone 2 mặt chống thấm', 'Bảo vệ khỏi côn trùng, sâu bọ, ruồi trái cây', 'Kích thước đa dạng phù hợp nhiều loại trái cây'],
+      name: 'Túi bao xoài chống côn trùng',
+      tag: 'Sản phẩm chính',
+      desc: 'Túi bao xoài chuyên dụng làm từ giấy phủ silicone 2 mặt, chống thấm nước ngoài trời và bảo vệ hiệu quả xoài khỏi côn trùng, ruồi trái cây xâm hại.',
+      bullets: ['Chất liệu giấy phủ silicone 2 mặt chống thấm', 'Bảo vệ khỏi ruồi trái cây, sâu đục quả, côn trùng', 'Kích thước đa dạng: S, M, L phù hợp mọi loại xoài'],
       image: '/images/baobi/1.png',
     },
     {
-      name: 'Bán sỉ và lẻ',
+      name: 'Bán sỉ và bán lẻ',
       tag: 'Giá cạnh tranh',
-      desc: 'Cung cấp sản phẩm với số lượng linh hoạt từ bán lẻ đến bán sỉ với giá cả cạnh tranh, chất lượng đảm bảo.',
-      bullets: ['Bán lẻ số lượng nhỏ cho nông dân', 'Bán sỉ số lượng lớn cho hợp tác xã', 'Giá ưu đãi theo số lượng đặt hàng'],
+      desc: 'Cung cấp túi bao xoài với số lượng linh hoạt từ bán lẻ cho nông dân đến bán sỉ cho hợp tác xã, doanh nghiệp xuất khẩu.',
+      bullets: ['Bán lẻ từ 50 túi cho nông dân trồng xoài', 'Bán sỉ số lượng lớn cho hợp tác xã, đại lý', 'Giá ưu đãi theo số lượng, chiết khấu hấp dẫn'],
       image: '/images/baobi/2.png',
     },
       {
       name: 'Chương trình đại lý cấp 1',
       tag: 'Cơ hội kinh doanh',
-      desc: 'Tuyển đại lý cấp 1 toàn quốc với chính sách hỗ trợ hấp dẫn, đào tạo và phát triển thị trường cùng nhau.',
-      bullets: ['Chính sách giá đại lý ưu đãi', 'Hỗ trợ marketing và quảng bá', 'Đào tạo kỹ thuật và kinh doanh'],
+      desc: 'Tuyển đại lý cấp 1 toàn quốc phân phối túi bao xoài với chính sách hỗ trợ toàn diện, lợi nhuận cao và bảo vệ vùng độc quyền.',
+      bullets: ['Chính sách giá đại lý ưu đãi lên đến 30%', 'Hỗ trợ marketing: banner, brochure, mẫu miễn phí', 'Bảo vệ vùng độc quyền, đào tạo kỹ thuật'],
       image: '/images/baobi/3.png',
     },
   ] as const
@@ -142,8 +144,8 @@ export default function App() {
   // Video sources (placed in public/videos/baobi/)
   const videos = [1,2,3,4].map(n => ({
     src: `/videos/baobi/${n}.mp4`,
-    title: `Video sản xuất ${n}`,
-    desc: 'Quy trình sản xuất túi bao bảo vệ trái cây chuyên dụng'
+    title: `Video sản xuất túi bao xoài ${n}`,
+    desc: 'Quy trình sản xuất túi bao xoài chuyên dụng giấy phủ silicone'
   }))
 
   // Tạm thời chưa có đối tác chính thức - chỉ hiện diện tại Đồng Tháp
@@ -152,9 +154,9 @@ export default function App() {
   return (
     <>
       <SEO 
-        title="Bao Bì Minh Quân - Bao Bì Trái Cây Xuất Khẩu | Thùng Carton, Xốp, Túi OPP"
-        description="Chuyên cung cấp bao bì xoài, mít xuất khẩu: thùng carton thoáng khí 5-7 lớp, khay xốp PE chống dập, túi lưới PE/OPP trong suốt, tem QR truy xuất nguồn gốc, màng co POF. Chuẩn VietGAP, GlobalGAP. Giao hàng toàn quốc."
-        keywords="bao bì trái cây, bao bì xoài, bao bì mít, thùng carton xuất khẩu, khay xốp PE, túi lưới PE, túi OPP, tem QR truy xuất, màng co POF, bao bì VietGAP, bao bì GlobalGAP, giấy gói xoài, giấy gói mít, bao bì Đồng Tháp, bao bì ĐBSCL"
+        title="Túi Bao Xoài Minh Quân - Giấy Phủ Silicone Chống Thấm, Chống Côn Trùng | Bán Sỉ Lẻ & Tuyển Đại Lý"
+        description="Chuyên sản xuất túi bao xoài chất liệu giấy phủ silicone 2 mặt chống thấm nước, chống côn trùng xâm hại. Bảo vệ xoài cát hòa lộc khỏi ruồi trái cây, sâu đục quả. Bán sỉ, bán lẻ và tuyển đại lý cấp 1 toàn quốc. Giao hàng tận nơi."
+        keywords="túi bao xoài, túi bọc xoài, giấy phủ silicone, túi bao xoài chống côn trùng, túi bao xoài cát hòa lộc, bán sỉ túi bao xoài, đại lý túi bao xoài, túi bao xoài Đồng Tháp, túi bao xoài ĐBSCL"
       />
       <Section id="home" className="pt-16 md:pt-20">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -166,7 +168,7 @@ export default function App() {
               className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full kraft-paper border-2 border-countryside-straw-300 text-countryside-wood-700 text-sm font-semibold sticker-effect"
             >
               <span className="h-2.5 w-2.5 rounded-full bg-countryside-leaf-500 animate-pulse" />
-              <span className="handwriting text-base">Bao bì bảo vệ trái cây Minh Quân</span>
+              <span className="handwriting text-base">Túi bao xoài Minh Quân</span>
             </motion.div>
 
             <motion.h1
@@ -175,12 +177,12 @@ export default function App() {
               transition={{ duration: 0.9, delay: 0.1 }}
               className="text-[2.3rem] leading-[1.15] sm:text-5xl lg:text-6xl font-extrabold text-countryside-wood-900 tracking-tight font-display"
             >
-              Bao bì bảo vệ trái cây{' '}
-              <span className="text-countryside-leaf-600">chống côn trùng</span> xâm hại
+              Túi bao xoài{' '}
+              <span className="text-countryside-leaf-600">chống côn trùng</span> hiệu quả
             </motion.h1>
 
             <p className="text-lg text-countryside-earth-700 max-w-xl leading-relaxed">
-              Chuyên sản xuất túi bao bằng chất liệu <strong className="text-countryside-wood-700">giấy phủ silicone 2 mặt</strong> chống thấm nước ngoài trời. Bảo vệ hiệu quả trái cây khỏi côn trùng xâm hại. <span className="handwriting text-countryside-straw-700 text-xl font-semibold">Bán sỉ, lẻ và tuyển đại lý cấp 1 toàn quốc.</span>
+              Chuyên sản xuất túi bao xoài bằng chất liệu <strong className="text-countryside-wood-700">giấy phủ silicone 2 mặt</strong> chống thấm nước ngoài trời. Bảo vệ xoài cát hòa lộc khỏi ruồi trái cây và sâu đục quả. <span className="handwriting text-countryside-straw-700 text-xl font-semibold">Bán sỉ, lẻ và tuyển đại lý cấp 1 toàn quốc.</span>
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -188,7 +190,7 @@ export default function App() {
                 href="#san-pham"
                 className="px-7 py-3.5 rounded-2xl bg-countryside-leaf-600 text-white shadow-handdrawn hover:bg-countryside-leaf-700 transition-all duration-300 font-semibold border-2 border-countryside-leaf-700 hover-wiggle"
               >
-                🌿 Xem sản phẩm bảo vệ trái cây
+                🥭 Xem sản phẩm túi bao xoài
               </a>
               <a
                 href="#dai-ly"
@@ -217,11 +219,11 @@ export default function App() {
             <div className="flex flex-wrap gap-5 text-sm text-countryside-earth-700 font-medium">
               <div className="inline-flex items-center gap-2">
                 <FiShield className="text-countryside-leaf-600" size={20} /> 
-                Chống côn trùng xâm hại hiệu quả
+                Chống ruồi trái cây, sâu đục quả
               </div>
               <div className="inline-flex items-center gap-2">
                 <FiStar className="text-countryside-straw-600" size={20} /> 
-                Chống thấm nước ngoài trời
+                Chống thấm nước, bền với thời tiết
               </div>
             </div>
           </div>
@@ -235,9 +237,9 @@ export default function App() {
             <div className="absolute -top-10 -left-6 hidden md:block z-20">
               <div className="rounded-2xl kraft-paper shadow-lg border-2 border-countryside-wood-200 px-5 py-3 text-sm text-countryside-earth-700 sticker-effect">
                 <div className="font-bold text-countryside-wood-800 font-display flex items-center gap-2">
-                  <span className="text-lg">📱</span> Tem QR truy xuất
+                  <span className="text-lg">🥭</span> Phù hợp mọi loại xoài
                 </div>
-                <div>Tích hợp sẵn mã QR, in chống nhòe.</div>
+                <div>Cát Hòa Lộc, Cát Chu, Xoài Úc, Xoài Đài Loan</div>
               </div>
             </div>
 
@@ -268,9 +270,9 @@ export default function App() {
 
             <div className="absolute -bottom-12 right-0 hidden md:block z-30">
               <div className="rounded-3xl bg-countryside-wood-800 text-white px-6 py-4 shadow-xl border-2 border-countryside-wood-900">
-                <div className="text-xs uppercase tracking-[0.3em] text-countryside-straw-200 font-semibold">⏱️ Lead time</div>
-                <div className="text-2xl font-bold handwriting">72 giờ</div>
-                <div className="text-sm text-countryside-straw-100/90">Từ phê duyệt mẫu tới sản xuất hàng loạt</div>
+                <div className="text-xs uppercase tracking-[0.3em] text-countryside-straw-200 font-semibold">⏱️ Giao hàng</div>
+                <div className="text-2xl font-bold handwriting">2-3 ngày</div>
+                <div className="text-sm text-countryside-straw-100/90">Từ khi đặt hàng đến nhận sản phẩm</div>
               </div>
             </div>
           </motion.div>
@@ -278,17 +280,17 @@ export default function App() {
           <div className="mt-6 w-full flex md:hidden flex-col gap-4">
             <div className="rounded-2xl kraft-paper shadow border-2 border-countryside-wood-200 px-5 py-3 text-sm text-countryside-earth-700 sticker-effect">
               <div className="font-bold text-countryside-wood-800 font-display flex items-center gap-2">
-                <span className="text-lg">📱</span> Tem QR truy xuất
+                <span className="text-lg">🥭</span> Phù hợp mọi loại xoài
               </div>
-              <div>Tích hợp sẵn mã QR, in chống nhòe.</div>
+              <div>Cát Hòa Lộc, Cát Chu, Xoài Úc, Xoài Đài Loan</div>
             </div>
             <div className="rounded-3xl bg-countryside-wood-800 text-white px-6 py-4 shadow-lg flex items-center justify-between border-2 border-countryside-wood-900">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-countryside-straw-200 font-semibold">⏱️ LEAD TIME</div>
-                <div className="text-xl font-bold leading-tight handwriting">72 giờ</div>
-                <div className="text-xs text-countryside-straw-100/90 mt-0.5">Từ phê duyệt mẫu tới sản xuất</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-countryside-straw-200 font-semibold">⏱️ GIAO HÀNG</div>
+                <div className="text-xl font-bold leading-tight handwriting">2-3 ngày</div>
+                <div className="text-xs text-countryside-straw-100/90 mt-0.5">Từ khi đặt hàng đến nhận sản phẩm</div>
               </div>
-              <div className="text-[11px] font-medium text-countryside-straw-100/90 handwriting text-lg">Nhanh chóng<br/>ổn định</div>
+              <div className="text-[11px] font-medium text-countryside-straw-100/90 handwriting text-lg">Nhanh<br/>chóng</div>
             </div>
           </div>
         </div>
@@ -371,16 +373,16 @@ export default function App() {
 
   <Section id="ve-chung-toi" className="pt-16 md:pt-20 bg-gradient-to-b from-countryside-leaf-50/30 to-countryside-straw-50/50">
         <SectionHeader
-          eyebrow="Bao bì bảo vệ trái cây"
-          title="Giải pháp chống côn trùng xâm hại hiệu quả"
-          desc="Bốn ưu điểm vượt trội của túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ trái cây an toàn."
+          eyebrow="Túi bao xoài chuyên dụng"
+          title="Giải pháp bảo vệ xoài hiệu quả nhất"
+          desc="Bốn ưu điểm vượt trội của túi bao xoài giấy phủ silicone 2 mặt chống thấm nước, bảo vệ xoài an toàn khỏi côn trùng và thời tiết."
         />
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <Feature icon={FiBox} title="Chống côn trùng xâm hại" desc="Túi bao bảo vệ hiệu quả trái cây khỏi côn trùng, sâu bọ và các loại xâm hại trong quá trình phát triển." />
-          <Feature icon={FiShield} title="Chống thấm nước" desc="Chất liệu giấy phủ silicone 2 mặt chống thấm nước ngoài trời, bảo vệ trái cây trong mọi điều kiện thời tiết." />
-          <Feature icon={FiStar} title="Chất lượng cao" desc="Sản phẩm được kiểm tra chất lượng nghiêm ngặt, đảm bảo độ bền và hiệu quả bảo vệ tối ưu." />
-          <Feature icon={FiPhoneCall} title="Hỗ trợ đại lý" desc="Chương trình đại lý cấp 1 hấp dẫn, hỗ trợ kinh doanh và phát triển thị trường toàn quốc." />
+          <Feature icon={FiBox} title="Chống ruồi trái cây" desc="Túi bao bảo vệ hiệu quả xoài khỏi ruồi trái cây, sâu đục quả và các loại côn trùng xâm hại trong quá trình phát triển." />
+          <Feature icon={FiShield} title="Chống thấm nước" desc="Chất liệu giấy phủ silicone 2 mặt chống thấm nước ngoài trời, bảo vệ xoài trong mọi điều kiện thời tiết, mưa nắng." />
+          <Feature icon={FiStar} title="Chất lượng cao cấp" desc="Sản phẩm được kiểm tra chất lượng nghiêm ngặt, đảm bảo độ bền, độ vừa vặn và hiệu quả bảo vệ xoài tối ưu." />
+          <Feature icon={FiPhoneCall} title="Hỗ trợ đại lý" desc="Chương trình đại lý cấp 1 hấp dẫn với chính sách giá ưu đãi, hỗ trợ kinh doanh và phát triển thị trường toàn quốc." />
         </div>
       </Section>
 
@@ -388,8 +390,8 @@ export default function App() {
       <Section id="videos" className="bg-countryside-wood-50/30 pt-16 md:pt-20">
         <SectionHeader
           eyebrow="Video thực tế"
-          title="Quy trình sản xuất"
-          desc="Video giới thiệu quy trình sản xuất túi bao bảo vệ trái cây chuyên dụng."
+          title="Quy trình sản xuất túi bao xoài"
+          desc="Video giới thiệu quy trình sản xuất túi bao xoài chuyên dụng giấy phủ silicone 2 mặt."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {videos.map((v, i) => (
@@ -410,7 +412,7 @@ export default function App() {
                 <div className="aspect-[4/3] relative overflow-hidden bg-countryside-wood-900">
                   <video
                     src={v.src}
-                    preload="none"
+                    preload="metadata"
                     muted
                     playsInline
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
@@ -442,8 +444,8 @@ export default function App() {
   <Section id="san-pham" className="bg-white pt-16 md:pt-20">
         <SectionHeader
           eyebrow="Sản phẩm chính"
-          title="Túi bao bảo vệ trái cây chuyên dụng"
-          desc="Sản phẩm túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ hiệu quả trái cây khỏi côn trùng xâm hại. Bán sỉ, lẻ và tuyển đại lý."
+          title="Túi bao xoài chuyên dụng"
+          desc="Sản phẩm túi bao xoài giấy phủ silicone 2 mặt chống thấm nước, bảo vệ hiệu quả xoài khỏi ruồi trái cây và côn trùng. Bán sỉ, lẻ và tuyển đại lý."
         />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
@@ -533,22 +535,22 @@ export default function App() {
         <div className="flex flex-col gap-12">
           <SectionHeader
             eyebrow="Chất liệu & công nghệ"
-            title="Giấy phủ silicone 2 mặt - Công nghệ bảo vệ tiên tiến"
-            desc="Túi bao bảo vệ trái cây của Minh Quân sử dụng công nghệ phủ silicone 2 mặt tiên tiến, tạo ra lớp bảo vệ hoàn hảo chống thấm nước và côn trùng xâm hại. Chất liệu an toàn, thân thiện môi trường và hiệu quả bảo vệ cao."
+            title="Giấy phủ silicone 2 mặt - Công nghệ bảo vệ xoài tiên tiến"
+            desc="Túi bao xoài của Minh Quân sử dụng công nghệ phủ silicone 2 mặt tiên tiến, tạo ra lớp bảo vệ hoàn hảo chống thấm nước và côn trùng xâm hại. Chất liệu an toàn, thân thiện môi trường và hiệu quả bảo vệ xoài cực cao."
           />
 
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
             <div className="space-y-6">
               <div className="text-sm text-countryside-earth-700 leading-relaxed bg-white/90 border-2 border-countryside-wood-200 rounded-3xl p-6 shadow-handdrawn">
-                Chúng tôi kiểm soát toàn bộ quy trình sản xuất túi bao bảo vệ trái cây: từ lựa chọn giấy chất lượng cao, công đoạn phủ silicone 2 mặt, đến khâu cắt may và đóng gói thành phẩm. Mỗi sản phẩm đều được kiểm tra chất lượng nghiêm ngặt về độ chống thấm, độ bền và hiệu quả bảo vệ trước khi đến tay khách hàng.
+                Chúng tôi kiểm soát toàn bộ quy trình sản xuất túi bao xoài: từ lựa chọn giấy chất lượng cao, công đoạn phủ silicone 2 mặt, đến khâu cắt may và đóng gói thành phẩm. Mỗi sản phẩm đều được kiểm tra chất lượng nghiêm ngặt về độ chống thấm, độ bền và hiệu quả bảo vệ xoài trước khi đến tay khách hàng.
               </div>
               <div className="rounded-3xl bg-white/90 border-2 border-countryside-wood-200 p-6 shadow-handdrawn space-y-3 text-sm text-countryside-earth-700">
-                <div className="font-bold text-countryside-wood-800 font-display text-base">Bốn ưu điểm vượt trội của túi bao bảo vệ trái cây</div>
+                <div className="font-bold text-countryside-wood-800 font-display text-base">Bốn ưu điểm vượt trội của túi bao xoài</div>
                 <ul className="space-y-3">
-                  <li>🌊 Lớp phủ silicone 2 mặt tạo khả năng chống thấm nước hoàn toàn, bảo vệ trái cây trong mọi điều kiện thời tiết ngoài trời.</li>
-                  <li>🐛 Ngăn chặn hiệu quả côn trùng, sâu bọ, ruồi trái cây và các loại xâm hại khác tiếp cận và gây hại cho trái cây.</li>
-                  <li>♻️ Chất liệu giấy an toàn, không độc hại, thân thiện với môi trường và không ảnh hưởng đến chất lượng trái cây.</li>
-                  <li>📏 Kích thước đa dạng phù hợp với nhiều loại trái cây khác nhau như xoài, mít, bưởi, cam, chanh và các loại trái cây khác.</li>
+                  <li>🌊 Lớp phủ silicone 2 mặt tạo khả năng chống thấm nước hoàn toàn, bảo vệ xoài trong mọi điều kiện thời tiết ngoài trời, mưa nắng.</li>
+                  <li>🐛 Ngăn chặn hiệu quả ruồi trái cây, sâu đục quả, bọ trĩ và các loại côn trùng xâm hại khác tiếp cận và gây hại cho xoài.</li>
+                  <li>♻️ Chất liệu giấy an toàn, không độc hại, thân thiện với môi trường và không ảnh hưởng đến chất lượng, màu sắc và hương vị xoài.</li>
+                  <li>📏 Kích thước đa dạng S, M, L phù hợp với nhiều loại xoài: Cát Hòa Lộc, Cát Chu, Xoài Úc, Xoài Đài Loan, Xoài Keo.</li>
                 </ul>
               </div>
             </div>
@@ -590,8 +592,8 @@ export default function App() {
       <Section id="quy-trinh">
         <SectionHeader
           eyebrow="Quy trình chuẩn hóa"
-          title="Đồng hành cùng bạn từ bản vẽ đến từng kiện hàng"
-          desc="Chỉ 4 bước ngắn gọn để biến ý tưởng bao bì thành kiện hàng sẵn sàng xuất khẩu."
+          title="Đồng hành cùng bạn từ tư vấn đến giao hàng"
+          desc="Chỉ 4 bước ngắn gọn để nhận được túi bao xoài chất lượng cao, phù hợp với nhu cầu của bạn."
         />
 
   <div className="mt-10 md:mt-12 grid md:grid-cols-2 gap-6 md:gap-8">
@@ -621,8 +623,8 @@ export default function App() {
   <Section id="dai-ly" className="kraft-paper rounded-[36px] md:rounded-[48px] pt-16 md:pt-20 border-4 border-countryside-wood-200">
         <SectionHeader
           eyebrow="Cơ hội kinh doanh"
-          title="Chương trình đại lý cấp 1 - Cơ hội vàng cho doanh nghiệp"
-          desc="Tham gia mạng lưới đại lý cấp 1 của Minh Quân để phát triển kinh doanh bao bì bảo vệ trái cây. Chính sách hỗ trợ toàn diện, lợi nhuận hấp dẫn."
+          title="Chương trình đại lý cấp 1 - Kinh doanh túi bao xoài"
+          desc="Tham gia mạng lưới đại lý cấp 1 của Minh Quân để phát triển kinh doanh túi bao xoài. Chính sách hỗ trợ toàn diện, lợi nhuận hấp dẫn, bảo vệ vùng độc quyền."
         />
 
   <div className="mt-10 md:mt-12 grid md:grid-cols-2 gap-6 md:gap-8">
@@ -678,11 +680,11 @@ export default function App() {
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1 h-2 w-2 rounded-full bg-countryside-leaf-500 border border-countryside-leaf-600" />
-                  <span>Cam kết đặt hàng tối thiểu 50 - 100 thùng</span>
+                  <span>Cam kết đặt hàng tối thiểu 5.000 - 10.000 túi/tháng</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1 h-2 w-2 rounded-full bg-countryside-leaf-500 border border-countryside-leaf-600" />
-                  <span>Có mạng lưới khách hàng nông dân, hợp tác xã</span>
+                  <span>Có mạng lưới khách hàng nông dân trồng xoài, hợp tác xã</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1 h-2 w-2 rounded-full bg-countryside-leaf-500 border border-countryside-leaf-600" />
@@ -715,17 +717,17 @@ export default function App() {
         <SectionHeader
           eyebrow="Đối tác (đang tìm kiếm)"
           title="Hiện diện tại Đồng Tháp – Đang mở rộng hợp tác"
-          desc="Sản phẩm hiện mới cung cấp tại Đồng Tháp. Chúng tôi đang tìm kiếm đối tác phân phối và đại lý tại các tỉnh khác. Liên hệ để trở thành một trong những đối tác đầu tiên."
+          desc="Sản phẩm túi bao xoài hiện mới cung cấp tại Đồng Tháp. Chúng tôi đang tìm kiếm đối tác phân phối và đại lý tại các tỉnh trồng xoài khác. Liên hệ để trở thành một trong những đối tác đầu tiên."
         />
 
         <div className="mt-8 text-center">
           <div className="inline-flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full kraft-paper border-2 border-countryside-straw-400 text-countryside-wood-800 font-bold text-sm sticker-effect">
               <span className="h-2.5 w-2.5 rounded-full bg-countryside-straw-500 animate-pulse" />
-              🌾 Đang tìm kiếm đối tác
+              🥭 Đang tìm kiếm đại lý túi bao xoài
             </div>
             <p className="text-sm text-countryside-earth-700 max-w-xl font-medium">
-              Chưa có đối tác chính thức. Đây là cơ hội để bạn trở thành đơn vị đồng hành đầu tiên cùng Minh Quân mở rộng thị trường.
+              Chưa có đối tác chính thức. Đây là cơ hội để bạn trở thành đơn vị đồng hành đầu tiên cùng Minh Quân mở rộng thị trường túi bao xoài toàn quốc.
             </p>
           </div>
         </div>
@@ -733,7 +735,7 @@ export default function App() {
         {partners.length === 0 && (
           <div className="mt-12 p-10 border-2 border-dashed border-countryside-wood-300 rounded-3xl text-center kraft-paper">
             <p className="font-bold text-countryside-wood-700 text-lg font-display">Chưa có logo đối tác</p>
-            <p className="text-sm text-countryside-earth-600 mt-2">Liên hệ ngay để xuất hiện tại khu vực này sớm nhất.</p>
+            <p className="text-sm text-countryside-earth-600 mt-2">Liên hệ ngay để trở thành đại lý túi bao xoài đầu tiên tại địa phương của bạn.</p>
           </div>
         )}
       </Section>
@@ -743,8 +745,8 @@ export default function App() {
           <div className="space-y-6">
             <SectionHeader
               eyebrow="Kết nối với Minh Quân"
-              title="Đặt hàng túi bao bảo vệ trái cây hoặc đăng ký đại lý"
-              desc="Liên hệ ngay để được tư vấn sản phẩm túi bao bảo vệ trái cây và thông tin chi tiết về chương trình đại lý cấp 1."
+              title="Đặt hàng túi bao xoài hoặc đăng ký đại lý"
+              desc="Liên hệ ngay để được tư vấn sản phẩm túi bao xoài và thông tin chi tiết về chương trình đại lý cấp 1. Chúng tôi sẵn sàng hỗ trợ 24/7."
             />
             <ul className="space-y-3 text-countryside-earth-700 text-sm font-medium">
               <li className="flex items-center gap-2">📱 <strong>Zalo:</strong> 0913 937 841</li>
@@ -753,7 +755,7 @@ export default function App() {
             </ul>
             <div className="text-sm text-countryside-wood-800 kraft-paper border-2 border-countryside-straw-300 rounded-2xl px-5 py-3.5 inline-flex items-center gap-3 font-semibold sticker-effect">
               <span className="h-2.5 w-2.5 rounded-full bg-countryside-leaf-500" />
-              🎁 Tặng mẫu sản phẩm miễn phí cho đơn hàng đầu tiên và đại lý mới.
+              🎁 Tặng mẫu túi bao xoài miễn phí cho đơn hàng đầu tiên và đại lý mới.
             </div>
           </div>
           <div className="rounded-3xl kraft-paper p-8 shadow-xl border-2 border-countryside-wood-200 flex flex-col items-center gap-5 handdrawn-border">
@@ -761,19 +763,93 @@ export default function App() {
               href="https://zalo.me/0913937841"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center px-6 py-3.5 rounded-2xl bg-countryside-wood-800 text-white font-bold hover:bg-countryside-wood-900 transition-all duration-300 border-2 border-countryside-wood-900 hover-wiggle"
+              className="w-full text-center px-6 py-3.5 rounded-2xl bg-countryside-wood-800 text-white font-bold hover:bg-countryside-wood-900 transition-all duration-300 border-2 border-countryside-wood-900 hover-wiggle inline-flex items-center justify-center gap-2"
             >
-              💬 Chat Zalo ngay
+              <img 
+                src="/images/zalo-icon.png" 
+                alt="Zalo" 
+                className="w-6 h-6 object-contain"
+              />
+              Chat Zalo ngay
             </a>
             <div className="text-sm text-countryside-earth-700 font-semibold handwriting text-base">Hoặc quét QR để kết nối tức thì</div>
             <img
               src="/images/zalo-qr.png"
-              alt="QR Zalo Bao Bì Minh Quân"
+              alt="QR Zalo Túi Bao Xoài Minh Quân"
               className="w-48 h-48 rounded-2xl border-2 border-countryside-wood-200 object-contain bg-white shadow-handdrawn"
             />
           </div>
         </div>
       </Section>
+
+      {/* Floating Contact Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        {/* Contact Menu */}
+        {showContactMenu && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            className="absolute bottom-20 right-0 flex flex-col gap-3 mb-2"
+          >
+            {/* Zalo Button */}
+            <a
+              href="https://zalo.me/0913937841"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-4 py-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-blue-200 hover:border-blue-400 hover-wiggle"
+            >
+              <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center border-2 border-blue-200 group-hover:scale-110 transition-transform overflow-hidden">
+                <img 
+                  src="/images/zalo-icon.png" 
+                  alt="Zalo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="font-bold text-countryside-wood-800 pr-2 whitespace-nowrap">Chat Zalo</span>
+            </a>
+
+            {/* Facebook Button */}
+            <a
+              href="https://www.facebook.com/profile.php?id=61581726788757"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-4 py-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-blue-200 hover:border-blue-600 hover-wiggle"
+            >
+              <div className="h-12 w-12 rounded-full bg-[#1877F2] flex items-center justify-center text-white font-bold text-lg border-2 border-[#0e5fc7] group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <span className="font-bold text-countryside-wood-800 pr-2 whitespace-nowrap">Facebook</span>
+            </a>
+          </motion.div>
+        )}
+
+        {/* Main Contact Button */}
+        <motion.button
+          type="button"
+          onClick={() => setShowContactMenu(!showContactMenu)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className={`h-16 w-16 rounded-full shadow-2xl flex items-center justify-center text-white font-bold text-2xl transition-all duration-300 border-4 ${
+            showContactMenu 
+              ? 'bg-countryside-wood-600 border-countryside-wood-700 rotate-45' 
+              : 'bg-countryside-leaf-600 border-countryside-leaf-700 hover:bg-countryside-leaf-700 contact-bounce'
+          }`}
+          aria-label="Liên hệ"
+        >
+          {showContactMenu ? (
+            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+            </svg>
+          ) : (
+            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          )}
+        </motion.button>
+      </div>
     </>
   )
 }

@@ -25,11 +25,6 @@ function Header() {
           <Link className="hover:text-countryside-leaf-600 transition text-countryside-wood-800" to="/chinh-sach-mua-hang">CS mua hàng</Link>
           <Link className="hover:text-countryside-leaf-600 transition text-countryside-wood-800" to="/chinh-sach-bao-mat">CS bảo mật</Link>
         </nav>
-        <div className="flex items-center gap-3">
-          <a href="https://zalo.me/0913937841" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-countryside-leaf-600 text-white hover:bg-countryside-leaf-700 transition text-sm font-bold shadow-handdrawn border-2 border-countryside-leaf-700">
-            <FiMessageSquare /> Chat Zalo
-          </a>
-        </div>
       </div>
       {/* Mobile nav panel */}
       <div
@@ -40,14 +35,6 @@ function Header() {
           <a onClick={() => setOpen(false)} className="hover:text-countryside-leaf-600 text-countryside-wood-800" href="/#ve-chung-toi">Về chúng tôi</a>
           <Link onClick={() => setOpen(false)} className="hover:text-countryside-leaf-600 text-countryside-wood-800" to="/chinh-sach-mua-hang">Chính sách mua hàng</Link>
           <Link onClick={() => setOpen(false)} className="hover:text-countryside-leaf-600 text-countryside-wood-800" to="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
-          <a
-            href="https://zalo.me/0913937841"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-countryside-leaf-600 text-white hover:bg-countryside-leaf-700 transition font-bold shadow-handdrawn border-2 border-countryside-leaf-700"
-          >
-            <FiMessageSquare /> Chat Zalo
-          </a>
         </div>
       </div>
     </header>
