@@ -93,14 +93,14 @@ export default function App() {
   }, [])
 
   const heroHighlights = [
-    { label: 'Bao bì bảo vệ trái cây', value: 'Chống côn trùng sâm hại' },
+    { label: 'Bao bì bảo vệ trái cây', value: 'Chống côn trùng xâm hại' },
     { label: 'Chất liệu', value: 'Giấy phủ silicone 2 mặt' },
     { label: 'Hệ thống đại lý', value: 'Tuyển đại lý cấp 1' },
   ]
 
   const materialSolution = {
     title: 'Túi bao giấy phủ silicone 2 mặt chuyên dụng',
-    desc: 'Chất liệu giấy cao cấp được phủ silicone 2 mặt tạo lớp bảo vệ chống thấm nước hoàn toàn, bảo vệ trái cây khỏi côn trùng sâm hại hiệu quả.',
+    desc: 'Chất liệu giấy cao cấp được phủ silicone 2 mặt tạo lớp bảo vệ chống thấm nước hoàn toàn, bảo vệ trái cây khỏi côn trùng xâm hại hiệu quả.',
     specs: ['Giấy phủ silicone 2 mặt chống thấm 100%', 'Bảo vệ khỏi côn trùng, sâu bọ, ruồi trái cây', 'Kích thước đa dạng cho nhiều loại trái cây', 'Chất liệu an toàn, không độc hại'],
     image: '/images/baobi/1.png',
   }
@@ -116,7 +116,7 @@ export default function App() {
     {
       name: 'Túi bao bảo vệ trái cây',
       tag: 'Giấy phủ silicone 2 mặt',
-      desc: 'Túi bao chuyên dụng làm từ giấy phủ silicone 2 mặt, chống thấm nước ngoài trời và bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại.',
+      desc: 'Túi bao chuyên dụng làm từ giấy phủ silicone 2 mặt, chống thấm nước ngoài trời và bảo vệ hiệu quả trái cây khỏi côn trùng xâm hại.',
       bullets: ['Chất liệu giấy phủ silicone 2 mặt chống thấm', 'Bảo vệ khỏi côn trùng, sâu bọ, ruồi trái cây', 'Kích thước đa dạng phù hợp nhiều loại trái cây'],
       image: '/images/baobi/1.png',
     },
@@ -175,11 +175,11 @@ export default function App() {
               transition={{ duration: 0.9, delay: 0.1 }}
               className="text-[2.1rem] leading-[1.15] sm:text-5xl lg:text-6xl font-extrabold text-[#2a1a0c] tracking-tight"
             >
-              Bao bì bảo vệ trái cây chống côn trùng sâm hại
+              Bao bì bảo vệ trái cây chống côn trùng xâm hại
             </motion.h1>
 
             <p className="text-lg text-[#6c5942] max-w-xl">
-              Chuyên sản xuất túi bao bằng chất liệu giấy phủ silicone 2 mặt chống thấm nước ngoài trời. Bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại. Bán sỉ, lẻ và tuyển đại lý cấp 1 toàn quốc.
+              Chuyên sản xuất túi bao bằng chất liệu giấy phủ silicone 2 mặt chống thấm nước ngoài trời. Bảo vệ hiệu quả trái cây khỏi côn trùng xâm hại. Bán sỉ, lẻ và tuyển đại lý cấp 1 toàn quốc.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -214,7 +214,7 @@ export default function App() {
             </div>
 
             <div className="flex flex-wrap gap-5 text-sm text-[#6c5942]">
-              <div className="inline-flex items-center gap-2"><FiShield className="text-[#c07b2c]" /> Chống côn trùng sâm hại hiệu quả</div>
+              <div className="inline-flex items-center gap-2"><FiShield className="text-[#c07b2c]" /> Chống côn trùng xâm hại hiệu quả</div>
               <div className="inline-flex items-center gap-2"><FiStar className="text-[#c07b2c]" /> Chống thấm nước ngoài trời</div>
             </div>
           </div>
@@ -361,12 +361,12 @@ export default function App() {
   <Section id="ve-chung-toi" className="pt-16 md:pt-20">
         <SectionHeader
           eyebrow="Bao bì bảo vệ trái cây"
-          title="Giải pháp chống côn trùng sâm hại hiệu quả"
+          title="Giải pháp chống côn trùng xâm hại hiệu quả"
           desc="Bốn ưu điểm vượt trội của túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ trái cây an toàn."
         />
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <Feature icon={FiBox} title="Chống côn trùng sâm hại" desc="Túi bao bảo vệ hiệu quả trái cây khỏi côn trùng, sâu bọ và các loại sâm hại trong quá trình phát triển." />
+          <Feature icon={FiBox} title="Chống côn trùng xâm hại" desc="Túi bao bảo vệ hiệu quả trái cây khỏi côn trùng, sâu bọ và các loại xâm hại trong quá trình phát triển." />
           <Feature icon={FiShield} title="Chống thấm nước" desc="Chất liệu giấy phủ silicone 2 mặt chống thấm nước ngoài trời, bảo vệ trái cây trong mọi điều kiện thời tiết." />
           <Feature icon={FiStar} title="Chất lượng cao" desc="Sản phẩm được kiểm tra chất lượng nghiêm ngặt, đảm bảo độ bền và hiệu quả bảo vệ tối ưu." />
           <Feature icon={FiPhoneCall} title="Hỗ trợ đại lý" desc="Chương trình đại lý cấp 1 hấp dẫn, hỗ trợ kinh doanh và phát triển thị trường toàn quốc." />
@@ -430,7 +430,7 @@ export default function App() {
         <SectionHeader
           eyebrow="Sản phẩm chính"
           title="Túi bao bảo vệ trái cây chuyên dụng"
-          desc="Sản phẩm túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ hiệu quả trái cây khỏi côn trùng sâm hại. Bán sỉ, lẻ và tuyển đại lý."
+          desc="Sản phẩm túi bao giấy phủ silicone 2 mặt chống thấm nước, bảo vệ hiệu quả trái cây khỏi côn trùng xâm hại. Bán sỉ, lẻ và tuyển đại lý."
         />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
@@ -521,7 +521,7 @@ export default function App() {
           <SectionHeader
             eyebrow="Chất liệu & công nghệ"
             title="Giấy phủ silicone 2 mặt - Công nghệ bảo vệ tiên tiến"
-            desc="Túi bao bảo vệ trái cây của Minh Quân sử dụng công nghệ phủ silicone 2 mặt tiên tiến, tạo ra lớp bảo vệ hoàn hảo chống thấm nước và côn trùng sâm hại. Chất liệu an toàn, thân thiện môi trường và hiệu quả bảo vệ cao."
+            desc="Túi bao bảo vệ trái cây của Minh Quân sử dụng công nghệ phủ silicone 2 mặt tiên tiến, tạo ra lớp bảo vệ hoàn hảo chống thấm nước và côn trùng xâm hại. Chất liệu an toàn, thân thiện môi trường và hiệu quả bảo vệ cao."
           />
 
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
@@ -533,7 +533,7 @@ export default function App() {
                 <div className="font-semibold text-[#3b2a17]">Bốn ưu điểm vượt trội của túi bao bảo vệ trái cây</div>
                 <ul className="space-y-3">
                   <li>• Lớp phủ silicone 2 mặt tạo khả năng chống thấm nước hoàn toàn, bảo vệ trái cây trong mọi điều kiện thời tiết ngoài trời.</li>
-                  <li>• Ngăn chặn hiệu quả côn trùng, sâu bọ, ruồi trái cây và các loại sâm hại khác tiếp cận và gây hại cho trái cây.</li>
+                  <li>• Ngăn chặn hiệu quả côn trùng, sâu bọ, ruồi trái cây và các loại xâm hại khác tiếp cận và gây hại cho trái cây.</li>
                   <li>• Chất liệu giấy an toàn, không độc hại, thân thiện với môi trường và không ảnh hưởng đến chất lượng trái cây.</li>
                   <li>• Kích thước đa dạng phù hợp với nhiều loại trái cây khác nhau như xoài, mít, bưởi, cam, chanh và các loại trái cây khác.</li>
                 </ul>
@@ -734,7 +734,7 @@ export default function App() {
             <ul className="space-y-3 text-[#6c5942] text-sm">
               <li>• Zalo: 0913 937 841</li>
               <li>• Email: lienhe@baobiminhquan.vn</li>
-              <li>• Văn phòng & nhà xưởng: Ấp Bình An, xã Bình Thành, huyện Lấp Vò, tỉnh Đồng Tháp</li>
+              <li>• Văn phòng & nhà xưởng: Ấp Bình An, xã Bình Thành, Lấp Vò, tỉnh Đồng Tháp</li>
             </ul>
             <div className="text-sm text-[#8c6123] bg-[#f7e6c5] border border-[#ead5b3] rounded-2xl px-4 py-3 inline-flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-[#c07b2c]" />
