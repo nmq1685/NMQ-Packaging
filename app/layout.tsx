@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Logo } from '@/components/Logo'
 import { ScrollToTop } from '@/components/ScrollToTop'
 import { ZaloBadge } from '@/components/ZaloBadge'
-import '../src/index.css'
+import './globals.css'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://baobiminhnquan.com'),
