@@ -3,6 +3,8 @@
 import { FiBox, FiPhoneCall, FiShield, FiStar } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { products } from '@/lib/products'
 
 const Section = ({ id, className = '', children }: { id?: string; className?: string; children: React.ReactNode }) => (
     <section id={id} className={`py-20 md:py-24 ${className}`}>
@@ -482,8 +484,8 @@ export default function Home() {
                                     ))}
                                 </ul>
                                 <div className="mt-auto pt-2">
-                                    <button
-                                        type="button"
+                                    <Link
+                                        href={`/san-pham/${products[i]?.id || 'tui-bao-xoai-chong-con-trung'}`}
                                         className="inline-flex items-center gap-1.5 text-[13px] font-bold text-countryside-wood-700 hover:text-countryside-leaf-600 transition group/btn font-display"
                                     >
                                         Tìm hiểu thêm
@@ -500,7 +502,7 @@ export default function Home() {
                                             <path d="M5 12h14" />
                                             <path d="m12 5 7 7-7 7" />
                                         </svg>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_70%)]" />
