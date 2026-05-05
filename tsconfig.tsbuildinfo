@@ -1,1 +1,1 @@
-{"root":["./src/App.tsx","./src/main.tsx","./src/components/Layout.tsx","./src/components/Logo.tsx","./src/components/ScrollToTop.tsx","./src/components/ZaloBadge.tsx","./src/pages/PrivacyPolicy.tsx","./src/pages/PurchasePolicy.tsx"],"version":"5.9.2"}
+{"root":["./src/App.tsx","./src/main.tsx","./src/components/Layout.tsx","./src/components/Logo.tsx","./src/components/SEO.tsx","./src/components/ScrollToTop.tsx","./src/components/ZaloBadge.tsx","./src/config/seo.ts","./src/pages/PrivacyPolicy.tsx","./src/pages/PurchasePolicy.tsx"],"version":"5.9.2"}
